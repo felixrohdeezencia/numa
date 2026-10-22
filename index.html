@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NuMA · Joyas con significado, hechas a mano en Tenerife</title>
+<meta name="description" content="Charlotte escucha tu historia, la dibuja en acuarela y la convierte en una joya única hecha a mano. Primera edición en Tenerife: 5 plazas a 100 € + materiales.">
+<meta property="og:title" content="NuMA · Tu historia, hecha joya">
+<meta property="og:description" content="Una experiencia personal con Charlotte y una joya única, hecha a mano solo para ti. Primera edición: 5 plazas.">
+<meta name="theme-color" content="#F6F2EA">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F6F2EA; --paper-2:#FBF9F4; --ink:#1D2432; --soft:#5B6475; --line:#DCD5C8;
+  --blue:#2B4A8B; --blue-deep:#1F3A72; --gold:#A97A25; --wash-op:1;
+  --btn:#1F3A72; --btn-ink:#FFFFFF; --nav:rgba(246,242,234,.86);
+  --serif:'Lora', 'Palatino Linotype', Palatino, Georgia, serif;
+  --sans:'Poppins', 'Helvetica Neue', Arial, sans-serif;
+  color-scheme: light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#151B27; --paper-2:#1C2332; --ink:#EEE8DD; --soft:#AEB4C2; --line:#2E3647;
+    --blue:#9DB8EC; --blue-deep:#9DB8EC; --gold:#D9AE5C; --wash-op:.55;
+    --btn:#E9EEF8; --btn-ink:#16203A; --nav:rgba(21,27,39,.86); color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#151B27; --paper-2:#1C2332; --ink:#EEE8DD; --soft:#AEB4C2; --line:#2E3647;
+  --blue:#9DB8EC; --blue-deep:#9DB8EC; --gold:#D9AE5C; --wash-op:.55;
+  --btn:#E9EEF8; --btn-ink:#16203A; --nav:rgba(21,27,39,.86); color-scheme: dark;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px);-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:1.0625rem;line-height:1.65;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--nav);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:4px}
+.wrap{width:min(1120px,100% - 2.5rem);margin-inline:auto}
+.serif{font-family:var(--serif);font-weight:400}
+.it{font-family:var(--serif);font-style:italic;color:var(--blue)}
+
+/* paper grain */
+.grain{position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.35;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45  0 0 0 0 .4  0 0 0 0 .32  0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+main{overflow-x:clip}
+html{overflow-x:clip}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--nav);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .3s}
+.nav.scrolled{border-bottom-color:var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:1rem}
+.logo{font-weight:500;font-size:1.2rem;letter-spacing:.16em;text-decoration:none}
+.logo span{font-weight:400}
+.nav ul{list-style:none;display:flex;gap:clamp(.9rem,3vw,2.2rem)}
+.nav ul a{text-decoration:none;font-size:.86rem;font-weight:400;color:var(--soft);padding:.4rem 0;transition:color .2s}
+.nav ul a:hover{color:var(--ink)}
+.nav .nav-cta{display:none}
+@media (min-width:860px){
+  .nav .nav-cta{display:inline-flex;font-size:.85rem;padding:.55rem 1rem}
+}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;background:var(--btn);color:var(--btn-ink);
+  text-decoration:none;font-family:var(--sans);font-weight:500;font-size:1rem;padding:1rem 1.5rem;border-radius:999px;
+  transition:transform .2s ease, box-shadow .2s ease;box-shadow:0 10px 26px -14px rgba(31,58,114,.55)}
+.btn:hover{transform:translateY(-1px);box-shadow:0 14px 30px -14px rgba(31,58,114,.7)}
+.btn svg{width:20px;height:20px;flex:none}
+.link{font-weight:400;color:var(--blue);text-underline-offset:4px}
+
+/* hero */
+.hero{position:relative;padding:1.2rem 0 3.5rem}
+.hero .wrap{display:grid;gap:.5rem}
+.hero-art{position:relative;margin-inline:-1.25rem;height:clamp(330px,96vw,540px)}
+.hero-art .wash{position:absolute;inset:-6% -14% -4% -4%;width:118%;max-width:none;height:auto;opacity:var(--wash-op);pointer-events:none}
+.hero-art .piece{position:absolute;left:50%;top:50%;height:90%;width:auto;max-width:none;transform:translate(-50%,-50%) rotate(-3deg)}
+.pill{display:inline-block;font-size:.8rem;font-weight:400;letter-spacing:.02em;color:var(--gold);border:1px solid var(--gold);border-radius:999px;padding:.35rem .9rem}
+h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.7rem,11vw,5.2rem);line-height:1.02;letter-spacing:-.01em;margin:1rem 0 1.1rem}
+h1 em{display:block;font-style:italic;color:var(--blue)}
+.lead{max-width:34ch;font-size:1.06rem;color:var(--ink)}
+.cta-row{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.4rem;margin-top:1.8rem}
+.micro{font-size:.84rem;color:var(--soft);margin-top:.9rem}
+@media (min-width:860px){
+  .hero{padding:3rem 0 5rem}
+  .hero .wrap{grid-template-columns:1.05fr 1fr;align-items:center;gap:3rem}
+  .hero-copy{order:1}
+  .hero-art{order:2;margin:0;height:620px}
+}
+
+/* sections */
+section{padding:4.5rem 0}
+h2{font-family:var(--serif);font-weight:400;font-size:clamp(2rem,6.4vw,3.2rem);line-height:1.1;margin-bottom:1.6rem}
+h2 em{font-style:italic;color:var(--blue)}
+
+/* process */
+.steps{display:grid;gap:2rem;margin-top:.5rem}
+.step{display:grid;grid-template-columns:2.6rem 1fr;gap:.2rem 1rem}
+.step .n{font-family:var(--serif);font-style:italic;color:var(--blue);font-size:1.6rem;line-height:1.1}
+.step h3{font-family:var(--sans);font-weight:500;font-size:1.02rem;margin-bottom:.2rem}
+.step p{color:var(--soft);font-size:.98rem;max-width:40ch}
+.sketch{margin:2.6rem -1.25rem 0;position:relative}
+.sketch img{width:100%;mix-blend-mode:multiply}
+.sketch figcaption{font-family:var(--serif);font-style:italic;font-size:.9rem;color:var(--soft);padding:0 1.25rem;margin-top:.4rem}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .sketch img{mix-blend-mode:normal;border-radius:14px} }
+:root[data-theme="dark"] .sketch img{mix-blend-mode:normal;border-radius:14px}
+@media (min-width:860px){
+  .process .wrap{display:grid;grid-template-columns:1fr 1.15fr;gap:4rem;align-items:center}
+  .sketch{margin:0}
+  .sketch figcaption{padding:0}
+}
+
+/* charlotte */
+.about{position:relative}
+.about .wash-rose{position:absolute;right:-120px;top:-40px;width:420px;opacity:calc(var(--wash-op) * .9);pointer-events:none}
+.portrait{position:relative;margin-bottom:2.4rem;width:min(100%,420px);aspect-ratio:4/5;border-radius:200px 200px 18px 18px;overflow:hidden;background:var(--paper-2);border:1px solid var(--line)}
+.portrait img{width:100%;height:100%;object-fit:cover}
+.portrait .ph{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:2rem;color:var(--soft);font-size:.88rem}
+.portrait .ph b{display:block;font-family:var(--serif);font-weight:400;font-style:italic;font-size:1.5rem;color:var(--blue);margin-bottom:.4rem}
+blockquote{font-family:var(--serif);font-style:italic;font-size:clamp(1.35rem,4.6vw,1.8rem);line-height:1.35;color:var(--ink);margin:2rem 0 1.4rem;max-width:26ch}
+blockquote footer{font-family:var(--sans);font-style:normal;font-size:.85rem;color:var(--soft);margin-top:.7rem}
+.about p{max-width:46ch;margin-bottom:1rem}
+@media (min-width:860px){
+  .about .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:4.5rem;align-items:center}
+  blockquote{margin-top:0} .portrait{margin-bottom:0}
+}
+
+/* offer */
+.offer{position:relative}
+.offer .wash-low{position:absolute;left:-160px;bottom:-40px;width:560px;opacity:var(--wash-op);pointer-events:none}
+.card{position:relative;background:color-mix(in srgb, var(--paper-2) 86%, transparent);border:1px solid var(--line);border-radius:22px;padding:2rem 1.5rem;max-width:620px;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.price{display:flex;align-items:baseline;gap:.9rem;margin:.6rem 0 .2rem}
+.price .now{font-family:var(--serif);font-size:clamp(3.4rem,14vw,4.6rem);line-height:1}
+.price .was{font-family:var(--serif);font-size:1.5rem;color:var(--soft);text-decoration:line-through;text-decoration-thickness:1px}
+.plus{color:var(--soft);font-size:.95rem}
+.incl{list-style:none;margin:1.6rem 0 1.4rem;display:grid;gap:.75rem}
+.incl li{position:relative;padding-left:1.6rem;font-size:.98rem}
+.incl li::before{content:"";position:absolute;left:0;top:.62em;width:.62rem;height:.62rem;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:var(--blue);opacity:.75}
+.why{font-size:.92rem;color:var(--soft);border-top:1px solid var(--line);padding-top:1.1rem;margin-bottom:1.6rem}
+.offer .btn{width:100%}
+@media (min-width:600px){ .offer .btn{width:auto} .card{padding:2.6rem 2.6rem} }
+
+/* faq */
+.faq .wrap{max-width:760px}
+details{border-top:1px solid var(--line)}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.15rem 0;font-weight:400;font-size:1.02rem}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"";width:.7rem;height:.7rem;border-right:1.5px solid var(--soft);border-bottom:1.5px solid var(--soft);transform:rotate(45deg) translateY(-3px);transition:transform .25s;flex:none}
+details[open] summary::after{transform:rotate(225deg) translateY(-2px)}
+details p{color:var(--soft);padding:0 0 1.2rem;max-width:56ch;font-size:.97rem}
+
+/* closing */
+.closing{text-align:center;padding:5rem 0 6rem}
+.closing h2{max-width:18ch;margin-inline:auto}
+.closing .micro{margin-top:1rem}
+
+/* footer (Master: karlaleon-website) */
+.site-foot{background:#1F3A72;color:#C3CFE6;font-size:.9rem}
+.site-foot .wrap{padding-block:34px;display:flex;flex-wrap:wrap;gap:14px 28px;justify-content:space-between;align-items:center}
+.site-foot .logo{color:#FBF9F4}
+.site-foot a{color:#E9EEF8;text-decoration:none}
+.site-foot a:hover{text-decoration:underline;text-underline-offset:3px}
+.site-foot nav{display:flex;gap:20px;flex-wrap:wrap}
+/* Firma Ezencia */
+.sig{background:#16203A;border-top:1px solid rgba(201,161,74,.28)}
+.sig .wrap{padding-block:30px;display:flex;justify-content:center}
+.site-foot a.ez{display:inline-flex;align-items:center;gap:22px;text-decoration:none;color:#F3EFE7;padding:12px 18px;border-radius:16px;transition:background .35s ease}
+.ez:hover,.ez:focus-visible{background:rgba(243,239,231,.045)}
+.site-foot a.ez:hover{text-decoration:none}
+.ez-by{display:grid;gap:7px;text-align:right;padding-right:22px;border-right:1px solid rgba(201,161,74,.32);font:500 10px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:#8EA0C4}
+.ez-by b{font-weight:500;color:#D9C38E}
+.ez-row{display:inline-flex;align-items:center;gap:14px}
+.ez-z{position:relative;width:44px;height:44px;flex:none;filter:drop-shadow(0 8px 14px rgba(0,0,0,.35));transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.ez-z img{position:absolute;inset:0;width:100%;height:100%;transition:opacity .45s ease}
+.ez-z .g{opacity:0}
+.ez:hover .ez-z,.ez:focus-visible .ez-z{transform:rotate(-6deg)}
+.ez:hover .ez-z .g,.ez:focus-visible .ez-z .g{opacity:1}
+.ez-wm{display:block;height:36px;width:auto}
+.ez-go{font:500 10px/1 ui-monospace,"SF Mono",Menlo,Consolas,monospace;letter-spacing:.14em;color:#9DB0D4;padding:8px 11px;border:1px solid rgba(243,239,231,.14);border-radius:999px;transition:color .3s,border-color .3s}
+.ez:hover .ez-go,.ez:focus-visible .ez-go{color:#F2D58A;border-color:rgba(201,161,74,.6)}
+@media (max-width:640px){
+  .ez{flex-direction:column;gap:16px;padding:14px 10px}
+  .ez-by{text-align:center;border-right:0;padding-right:0;display:block;line-height:1.6}
+  .ez-by br{display:none}
+  .ez-by b::before{content:" "}
+  .ez-z{width:40px;height:40px}
+  .ez-wm{height:32px}
+  .site-foot .wrap{padding-bottom:28px}
+}
+/* Platz für die mobile Sticky-Leiste */
+@media (max-width:859px){ .sig .wrap{padding-block:30px calc(120px + env(safe-area-inset-bottom,0px))} }
+@media (prefers-reduced-motion:reduce){.ez-z,.ez-z img,.ez-go{transition:none}}
+
+/* sticky mobile cta */
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:25;padding:.75rem 1rem calc(.75rem + env(safe-area-inset-bottom,0px));
+  background:var(--nav);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-top:1px solid var(--line);
+  display:flex;align-items:center;gap:.9rem;transform:translateY(110%);transition:transform .35s ease}
+.dock.show{transform:none}
+.dock .txt{font-size:.8rem;line-height:1.3;color:var(--soft);flex:1}
+.dock .txt b{display:block;font-weight:500;color:var(--ink);font-size:.9rem}
+.dock .btn{padding:.8rem 1.1rem;font-size:.92rem}
+@media (min-width:860px){ .dock{display:none} }
+
+/* one orchestrated entrance */
+@media (prefers-reduced-motion: no-preference){
+  .hero-art .wash{animation:bloom 1.6s ease-out both}
+  .hero-art .piece{animation:settle 1.2s .25s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes bloom{from{opacity:0;transform:scale(.92)}to{opacity:var(--wash-op);transform:none}}
+  @keyframes settle{from{opacity:0;transform:translate(-50%,-44%) rotate(-6deg)}to{opacity:1;transform:translate(-50%,-50%) rotate(-3deg)}}
+}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} .dock{transition:none} }
+</style>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="nav" id="top-nav">
+  <div class="wrap">
+    <a class="logo" href="#inicio" aria-label="NuMA, inicio">N<span>u</span>MA</a>
+    <nav aria-label="Secciones">
+      <ul>
+        <li><a href="#como">Cómo</a></li>
+        <li><a href="#charlotte">Charlotte</a></li>
+        <li><a href="#precio">Precio</a></li>
+        <li><a href="#preguntas">Preguntas</a></li>
+      </ul>
+    </nav>
+    <a class="btn nav-cta" href="https://api.whatsapp.com/send/?phone=34642527397&amp;text=Hola%20Charlotte%2C%20vengo%20de%20la%20web%20de%20NuMA%20y%20quiero%20saber%20m%C3%A1s%20%F0%9F%92%99" target="_blank" rel="noopener">Escríbeme</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="inicio" aria-labelledby="h1">
+    <div class="wrap">
+      <div class="hero-art" aria-hidden="false">
+        <img class="wash" src="assets/wash-hero.webp" alt="" aria-hidden="true">
+        <img class="piece" src="assets/necklace.webp" alt="Collar de Charlotte con piezas de lapislázuli, nácar y cuentas azul claro" width="900" height="1152">
+      </div>
+      <div class="hero-copy">
+        <span class="pill">Primera edición: 5 plazas a 100 €</span>
+        <h1 id="h1">Tu historia, <em>hecha joya.</em></h1>
+        <p class="lead">Primero escucho tu historia. Después la dibujo. Al final, la creo con mis manos: una joya que solo puede ser tuya.</p>
+        <div class="cta-row">
+          <a class="btn" href="https://api.whatsapp.com/send/?phone=34642527397&amp;text=Hola%20Charlotte%2C%20vengo%20de%20la%20web%20de%20NuMA%20y%20quiero%20saber%20m%C3%A1s%20%F0%9F%92%99" target="_blank" rel="noopener" id="hero-cta"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91A9.85 9.85 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24a8.2 8.2 0 0 1 8.24 8.25c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.16.04-.31-.02-.43-.06-.13-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.07-.1-.23-.16-.48-.29Z"/></svg>Escríbeme por WhatsApp</a>
+          <a class="link" href="#como">Cómo funciona</a>
+        </div>
+        <p class="micro">Te respondo yo misma, normalmente el mismo día. Sin compromiso.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="process" id="como" aria-labelledby="h-como">
+    <div class="wrap">
+      <div>
+        <h2 id="h-como">Cómo nace <em>tu pieza</em></h2>
+        <div class="steps">
+          <div class="step"><span class="n" aria-hidden="true">i</span><div><h3>Nos encontramos</h3><p>En tu casa, en tu hotel o en un lugar que te guste. Unas horas para ti, con calma y sin prisa.</p></div></div>
+          <div class="step"><span class="n" aria-hidden="true">ii</span><div><h3>Escucho y dibujo</h3><p>Una persona, un recuerdo o una etapa de tu vida. La traduzco en acuarela y lápiz, a mano.</p></div></div>
+          <div class="step"><span class="n" aria-hidden="true">iii</span><div><h3>La creo para ti</h3><p>Elegimos juntos materiales con significado. Después la hago a mano: una pieza única, solo para ti.</p></div></div>
+        </div>
+      </div>
+      <figure class="sketch">
+        <img src="assets/sketch.webp" alt="Boceto en acuarela naranja y violeta con dos pendientes dibujados a lápiz y notas: perla cerámica, metal dorado, perla dorada" width="1200" height="922" loading="lazy">
+        <figcaption>Acuarela y lápiz: así empieza cada pieza.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="about" id="charlotte" aria-labelledby="h-charlotte">
+    <img class="wash-rose" src="assets/wash-rose.webp" alt="" aria-hidden="true" loading="lazy">
+    <div class="wrap">
+      <div class="portrait">
+        <img src="assets/portrait.webp" alt="Charlotte, joyera y artista, en su taller" width="800" height="1000" loading="lazy">
+      </div>
+      <div>
+        <h2 id="h-charlotte">Soy <em>Charlotte</em></h2>
+        <blockquote>«Me encanta ir hondo con las personas y encontrar quiénes son de verdad.»</blockquote>
+        <p>Soy joyera de formación —Bellas Artes, metal y oficio— y artista. Pinto, dibujo y creo con las manos.</p>
+        <p>En NuMA junto las dos cosas: escuchar a una persona y traducir lo que es en una pieza que puede llevar puesta. El nombre viene de Nuria y Marisa, mi abuela y mi madre: el amor y el cuidado con los que aprendí a crear.</p>
+        <p>Hablo español, français y English.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="offer" id="precio" aria-labelledby="h-precio">
+    <img class="wash-low" src="assets/wash-low.webp" alt="" aria-hidden="true" loading="lazy">
+    <div class="wrap">
+      <div class="card">
+        <h2 id="h-precio">Primera <em>edición</em></h2>
+        <p class="plus">Experiencia y joya única</p>
+        <div class="price"><span class="now">100&#8239;€</span><span class="was" aria-label="Precio habitual 500 euros">500&#8239;€</span></div>
+        <p class="plus">+ materiales, que elegimos juntos</p>
+        <ul class="incl">
+          <li>Unas horas contigo, en el lugar que elijas</li>
+          <li>Tu historia, dibujada a mano en acuarela</li>
+          <li>Una joya única, hecha por mí</li>
+          <li>Del latón a la piedra natural, o algo tuyo que quieras incluir. Te digo el precio de los materiales antes de empezar.</li>
+        </ul>
+        <p class="why">Solo para 5 personas. A cambio te pido tu opinión sincera y, si te apetece, que pueda enseñar cómo nace tu pieza.</p>
+        <a class="btn" href="https://api.whatsapp.com/send/?phone=34642527397&amp;text=Hola%20Charlotte%2C%20vengo%20de%20la%20web%20de%20NuMA%20y%20quiero%20saber%20m%C3%A1s%20%F0%9F%92%99" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91A9.85 9.85 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24a8.2 8.2 0 0 1 8.24 8.25c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.16.04-.31-.02-.43-.06-.13-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.07-.1-.23-.16-.48-.29Z"/></svg>Quiero una de las 5 plazas</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq" id="preguntas" aria-labelledby="h-faq">
+    <div class="wrap">
+      <h2 id="h-faq">Preguntas</h2>
+      <details><summary>¿Cuánto dura el encuentro?</summary><p>Unas horas, sin prisa. Lo adaptamos a ti y a tu historia.</p></details>
+      <details><summary>¿Dónde nos vemos?</summary><p>En tu casa, en tu hotel o en un lugar que te guste, en Tenerife.</p></details>
+      <details><summary>¿Cuánto cuestan los materiales?</summary><p>Depende de lo que elijamos juntos. Te digo el precio antes de empezar, así sabes el total antes de decidir.</p></details>
+      <details><summary>¿Cuándo está lista mi joya?</summary><p>Depende de la pieza y del material. Te doy una fecha antes de empezar.</p></details>
+      <details><summary>¿Puedo regalarla?</summary><p>Sí. La experiencia también puede ser un regalo para alguien especial.</p></details>
+      <details><summary>¿En qué idiomas?</summary><p>Español, français y English.</p></details>
+    </div>
+  </section>
+
+  <section class="closing" aria-labelledby="h-close">
+    <div class="wrap">
+      <h2 id="h-close">¿Tienes una historia que quieras <em>llevar contigo?</em></h2>
+      <a class="btn" href="https://api.whatsapp.com/send/?phone=34642527397&amp;text=Hola%20Charlotte%2C%20vengo%20de%20la%20web%20de%20NuMA%20y%20quiero%20saber%20m%C3%A1s%20%F0%9F%92%99" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91A9.85 9.85 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24a8.2 8.2 0 0 1 8.24 8.25c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.16.04-.31-.02-.43-.06-.13-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.07-.1-.23-.16-.48-.29Z"/></svg>Escríbeme por WhatsApp</a>
+      <p class="micro">Quedan plazas en la primera edición.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <span><span class="logo">N<span>u</span>MA</span> &nbsp;·&nbsp; Joyas con significado, hechas a mano en Tenerife.</span>
+    <nav aria-label="Contacto"><a href="https://api.whatsapp.com/send/?phone=34642527397&amp;text=Hola%20Charlotte%2C%20vengo%20de%20la%20web%20de%20NuMA%20y%20quiero%20saber%20m%C3%A1s%20%F0%9F%92%99" target="_blank" rel="noopener">WhatsApp +34 642 52 73 97</a></nav>
+  </div>
+  <div class="sig">
+    <div class="wrap">
+      <a class="ez" href="https://felixrohde.com/" target="_blank" rel="noopener" aria-label="Identidad de marca y diseño web: Ezencia, Tenerife (felixrohde.com)">
+        <span class="ez-by">Identidad de marca<br><b>y diseño web por</b></span>
+        <span class="ez-row">
+          <span class="ez-z" aria-hidden="true"><img src="assets/ezencia/ezencia-zeichen-knochen.png" width="44" height="44" alt="" loading="lazy" decoding="async"><img class="g" src="assets/ezencia/ezencia-zeichen-gold.png" width="44" height="44" alt="" loading="lazy" decoding="async"></span>
+          <img class="ez-wm" src="assets/ezencia/ezencia-schriftzug-hell.webp" width="162" height="36" alt="Ezencia · Tenerife" loading="lazy" decoding="async">
+        </span>
+        <span class="ez-go" aria-hidden="true">felixrohde.com ↗</span>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<div class="dock" id="dock" aria-hidden="true">
+  <div class="txt"><b>Primera edición</b>5 plazas a 100&#8239;€ + materiales</div>
+  <a class="btn" href="https://api.whatsapp.com/send/?phone=34642527397&amp;text=Hola%20Charlotte%2C%20vengo%20de%20la%20web%20de%20NuMA%20y%20quiero%20saber%20m%C3%A1s%20%F0%9F%92%99" target="_blank" rel="noopener" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91A9.85 9.85 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24a8.2 8.2 0 0 1 8.24 8.25c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.16.04-.31-.02-.43-.06-.13-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.07-.1-.23-.16-.48-.29Z"/></svg>Escríbeme</a>
+</div>
+
+<script>
+(function(){
+  var nav=document.getElementById('top-nav');
+  function onScroll(){ nav.classList.toggle('scrolled', window.scrollY>8); }
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+
+  var dock=document.getElementById('dock'), cta=document.getElementById('hero-cta');
+  if('IntersectionObserver' in window){
+    var seen=false;
+    new IntersectionObserver(function(e){
+      var past=!e[0].isIntersecting && e[0].boundingClientRect.top<0;
+      dock.classList.toggle('show',past);
+      dock.setAttribute('aria-hidden',past?'false':'true');
+      dock.querySelector('a').tabIndex=past?0:-1;
+    },{threshold:0}).observe(cta);
+  }
+
+  var ids=['inicio','como','charlotte','precio','preguntas'];
+  var h=(location.hash||'').slice(1);
+  if(ids.indexOf(h)>-1){ var el=document.getElementById(h); if(el){ setTimeout(function(){ el.scrollIntoView(); },60); } }
+})();
+</script>
+</body>
+</html>
