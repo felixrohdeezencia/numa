@@ -4,171 +4,222 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>NuMA · Joyas con significado, hechas a mano en Tenerife</title>
-<meta name="description" content="Charlotte escucha tu historia, la dibuja en acuarela y la convierte en una joya única hecha a mano. Primera edición en Tenerife: 5 plazas a 100 € + materiales.">
+<meta name="description" content="Charlotte escucha tu historia, la pinta en acuarela y la convierte en una joya única de piedra natural, hecha a mano en Tenerife. Edición fundacional: 5 plazas.">
 <meta property="og:title" content="NuMA · Tu historia, hecha joya">
-<meta property="og:description" content="Una experiencia personal con Charlotte y una joya única, hecha a mano solo para ti. Primera edición: 5 plazas.">
-<meta name="theme-color" content="#F6F2EA">
+<meta property="og:description" content="Una experiencia personal con Charlotte y una joya única de piedra natural, hecha a mano solo para ti. Edición fundacional: 5 plazas.">
+<meta name="theme-color" content="#0C1747">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --paper:#F6F2EA; --paper-2:#FBF9F4; --ink:#1D2432; --soft:#5B6475; --line:#DCD5C8;
-  --blue:#2B4A8B; --blue-deep:#1F3A72; --gold:#A97A25; --wash-op:1;
-  --btn:#1F3A72; --btn-ink:#FFFFFF; --nav:rgba(246,242,234,.86);
-  --serif:'Lora', 'Palatino Linotype', Palatino, Georgia, serif;
-  --sans:'Poppins', 'Helvetica Neue', Arial, sans-serif;
+  /* Lapislázuli */
+  --noche:#0C1747; --noche-2:#111F5C; --ultramar:#1F3A9E; --azur:#4E73DA;
+  --pirita:#D4AF5A; --pirita-2:#E8CB86; --calcita:#F3F4F8; --plata:#BFC5D2;
+  --ambar:#D98A3A; --amatista:#8E7BC4;
+  /* light sections (calcite) */
+  --bg:var(--calcita); --bg-2:#FFFFFF; --ink:#141D45; --soft:#4B5578; --line:#D9DDE8;
+  --head:var(--ultramar); --btn:var(--ultramar); --btn-ink:#FFFFFF;
+  --serif:'Bodoni Moda', 'Didot', 'Bodoni 72', Georgia, serif;
+  --sans:'Jost', 'Futura', 'Avenir Next', 'Helvetica Neue', Arial, sans-serif;
+  --nav-h:64px;
   color-scheme: light;
-  box-sizing:border-box;
-  padding-top:env(safe-area-inset-top,0px);
-  padding-bottom:env(safe-area-inset-bottom,0px);
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --paper:#151B27; --paper-2:#1C2332; --ink:#EEE8DD; --soft:#AEB4C2; --line:#2E3647;
-    --blue:#9DB8EC; --blue-deep:#9DB8EC; --gold:#D9AE5C; --wash-op:.55;
-    --btn:#E9EEF8; --btn-ink:#16203A; --nav:rgba(21,27,39,.86); color-scheme: dark;
+    --bg:#0A133B; --bg-2:#101B4E; --ink:#E9ECF4; --soft:#A9B2CB; --line:#24316B;
+    --head:#C9D4F5; --btn:var(--pirita); --btn-ink:var(--noche); color-scheme: dark;
   }
 }
 :root[data-theme="dark"]{
-  --paper:#151B27; --paper-2:#1C2332; --ink:#EEE8DD; --soft:#AEB4C2; --line:#2E3647;
-  --blue:#9DB8EC; --blue-deep:#9DB8EC; --gold:#D9AE5C; --wash-op:.55;
-  --btn:#E9EEF8; --btn-ink:#16203A; --nav:rgba(21,27,39,.86); color-scheme: dark;
+  --bg:#0A133B; --bg-2:#101B4E; --ink:#E9ECF4; --soft:#A9B2CB; --line:#24316B;
+  --head:#C9D4F5; --btn:var(--pirita); --btn-ink:var(--noche); color-scheme: dark;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px);-webkit-text-size-adjust:100%}
-body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:1.0625rem;line-height:1.65;overflow-x:hidden}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--nav);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + var(--nav-h) + 8px);-webkit-text-size-adjust:100%;overflow-x:clip}
+body{background:var(--noche);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:1.0625rem;line-height:1.7;overflow-x:hidden}
 img{max-width:100%;height:auto;display:block}
 a{color:inherit}
-:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:4px}
-.wrap{width:min(1120px,100% - 2.5rem);margin-inline:auto}
-.serif{font-family:var(--serif);font-weight:400}
-.it{font-family:var(--serif);font-style:italic;color:var(--blue)}
-
-/* paper grain */
-.grain{position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.35;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45  0 0 0 0 .4  0 0 0 0 .32  0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+:focus-visible{outline:2px solid var(--pirita);outline-offset:3px;border-radius:4px}
+.wrap{width:min(1160px,100% - 2.5rem);margin-inline:auto}
 main{overflow-x:clip}
-html{overflow-x:clip}
+section{position:relative;padding:clamp(4.5rem,9vw,8rem) 0}
+.light{background:var(--bg);color:var(--ink)}
+.dark{background:var(--noche);color:#E9ECF4}
 
-/* nav */
-.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--nav);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .3s}
-.nav.scrolled{border-bottom-color:var(--line)}
-.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:1rem}
-.logo{font-weight:500;font-size:1.2rem;letter-spacing:.16em;text-decoration:none}
-.logo span{font-weight:400}
-.nav ul{list-style:none;display:flex;gap:clamp(.9rem,3vw,2.2rem)}
-.nav ul a{text-decoration:none;font-size:.86rem;font-weight:400;color:var(--soft);padding:.4rem 0;transition:color .2s}
-.nav ul a:hover{color:var(--ink)}
-.nav .nav-cta{display:none}
-@media (min-width:860px){
-  .nav .nav-cta{display:inline-flex;font-size:.85rem;padding:.55rem 1rem}
-}
+/* type */
+h1,h2,h3,.serif{font-family:var(--serif);font-weight:400;font-optical-sizing:auto}
+h2{font-size:clamp(2.2rem,6.2vw,3.9rem);line-height:1.04;letter-spacing:-.015em;margin-bottom:1.4rem}
+.light h2{color:var(--head)}
+.dark h2{color:#F3F4F8}
+.intro{max-width:44ch;color:var(--soft);font-size:1.08rem}
+.dark .intro{color:#B7C0DA}
 
-/* buttons */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;background:var(--btn);color:var(--btn-ink);
-  text-decoration:none;font-family:var(--sans);font-weight:500;font-size:1rem;padding:1rem 1.5rem;border-radius:999px;
-  transition:transform .2s ease, box-shadow .2s ease;box-shadow:0 10px 26px -14px rgba(31,58,114,.55)}
-.btn:hover{transform:translateY(-1px);box-shadow:0 14px 30px -14px rgba(31,58,114,.7)}
+/* gold hairline: the recurring signature */
+.rule{display:block;width:64px;height:1px;background:linear-gradient(90deg,var(--pirita),var(--pirita-2),var(--pirita));margin:0 0 1.6rem}
+
+/* ---------- Brand mark ---------- */
+.brand{display:inline-flex;align-items:center;gap:.6rem;text-decoration:none;color:var(--plata)}
+.brand svg{width:26px;height:26px;flex:none}
+.brand b{font-family:var(--serif);font-weight:500;font-size:1.45rem;letter-spacing:.06em;line-height:1}
+.brand b i{font-style:italic;font-weight:400;color:var(--pirita-2);letter-spacing:0;margin:0 .02em}
+
+/* ---------- Buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.65rem;text-decoration:none;font-family:var(--sans);font-weight:500;font-size:1rem;letter-spacing:.02em;padding:1.05rem 1.7rem;border-radius:999px;transition:transform .25s ease, box-shadow .25s ease, background .25s ease}
 .btn svg{width:20px;height:20px;flex:none}
-.link{font-weight:400;color:var(--blue);text-underline-offset:4px}
+.btn-gold{background:linear-gradient(135deg,#B8903A 0%,#E8CB86 45%,#D4AF5A 70%,#A9832F 100%);color:var(--noche);box-shadow:0 14px 34px -16px rgba(212,175,90,.75)}
+.btn-gold:hover{transform:translateY(-1px);box-shadow:0 18px 40px -16px rgba(212,175,90,.95)}
+.btn-solid{background:var(--btn);color:var(--btn-ink);box-shadow:0 14px 30px -18px rgba(31,58,158,.8)}
+.btn-solid:hover{transform:translateY(-1px)}
+.link{color:inherit;font-weight:400;text-underline-offset:5px;text-decoration-thickness:1px;text-decoration-color:var(--pirita)}
 
-/* hero */
-.hero{position:relative;padding:1.2rem 0 3.5rem}
-.hero .wrap{display:grid;gap:.5rem}
-.hero-art{position:relative;margin-inline:-1.25rem;height:clamp(330px,96vw,540px)}
-.hero-art .wash{position:absolute;inset:-6% -14% -4% -4%;width:118%;max-width:none;height:auto;opacity:var(--wash-op);pointer-events:none}
-.hero-art .piece{position:absolute;left:50%;top:50%;height:90%;width:auto;max-width:none;transform:translate(-50%,-50%) rotate(-3deg)}
-.pill{display:inline-block;font-size:.8rem;font-weight:400;letter-spacing:.02em;color:var(--gold);border:1px solid var(--gold);border-radius:999px;padding:.35rem .9rem}
-h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.7rem,11vw,5.2rem);line-height:1.02;letter-spacing:-.01em;margin:1rem 0 1.1rem}
-h1 em{display:block;font-style:italic;color:var(--blue)}
-.lead{max-width:34ch;font-size:1.06rem;color:var(--ink)}
-.cta-row{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.4rem;margin-top:1.8rem}
-.micro{font-size:.84rem;color:var(--soft);margin-top:.9rem}
-@media (min-width:860px){
-  .hero{padding:3rem 0 5rem}
-  .hero .wrap{grid-template-columns:1.05fr 1fr;align-items:center;gap:3rem}
+/* ---------- Nav ---------- */
+.nav{position:fixed;inset:0 0 auto;z-index:30;padding-top:env(safe-area-inset-top,0px);transition:background .35s ease, border-color .35s ease;border-bottom:1px solid transparent}
+.nav.scrolled{background:rgba(12,23,71,.88);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border-bottom-color:rgba(212,175,90,.22)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:var(--nav-h);gap:1rem}
+.nav ul{list-style:none;display:flex;gap:clamp(.9rem,2.6vw,2.2rem)}
+.nav ul a{text-decoration:none;font-size:.9rem;font-weight:400;color:#C9D0E4;padding:.4rem 0;transition:color .2s}
+.nav ul a:hover{color:var(--pirita-2)}
+.nav .nav-cta{display:none}
+@media (max-width:620px){ .nav ul{display:none} }
+@media (min-width:900px){ .nav .nav-cta{display:inline-flex;padding:.6rem 1.15rem;font-size:.88rem} }
+
+/* ---------- Hero: the stone ---------- */
+.hero{min-height:100svh;padding:calc(var(--nav-h) + env(safe-area-inset-top,0px) + 1.5rem) 0 3.5rem;display:flex;align-items:center;overflow:hidden;color:#F3F4F8;background:var(--noche)}
+.hero .stone{position:absolute;inset:0;width:100%;height:100%}
+.hero::after{content:"";position:absolute;inset:0;background:
+  radial-gradient(120% 80% at 75% 45%, rgba(12,23,71,0) 0%, rgba(12,23,71,.35) 60%, rgba(12,23,71,.85) 100%),
+  linear-gradient(180deg, rgba(12,23,71,.55) 0%, rgba(12,23,71,0) 22%, rgba(12,23,71,0) 70%, rgba(12,23,71,.7) 100%);pointer-events:none}
+.hero .wrap{position:relative;z-index:1;display:grid;gap:1.2rem}
+.hero-art{position:relative;height:clamp(300px,82vw,560px);display:grid;place-items:center}
+.hero-art::before{content:"";position:absolute;width:70%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle, rgba(232,203,134,.22) 0%, rgba(78,115,218,.18) 40%, rgba(12,23,71,0) 70%)}
+.hero-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 30px 40px rgba(6,12,40,.55));transform:rotate(-4deg)}
+.edition{display:inline-flex;align-items:center;gap:.7rem;font-size:.92rem;color:var(--pirita-2);font-weight:400}
+.edition::before{content:"";width:28px;height:1px;background:var(--pirita)}
+h1{font-size:clamp(3.1rem,12.5vw,5.4rem);line-height:1;letter-spacing:-.02em;margin:1rem 0 1.4rem;color:#F3F4F8}
+h1 span{display:block;font-style:italic;padding-bottom:.08em;
+  background:linear-gradient(100deg,#B8903A 0%,#E8CB86 35%,#F6E3B0 50%,#D4AF5A 70%,#A9832F 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{max-width:36ch;font-size:1.12rem;color:#D3D9EA}
+.cta-row{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.6rem;margin-top:2rem}
+.hero .link{color:#E9ECF4}
+.micro{font-size:.88rem;color:#A9B2CB;margin-top:1rem}
+@media (min-width:900px){
+  .hero .wrap{grid-template-columns:1.1fr .9fr;align-items:center;gap:3rem}
   .hero-copy{order:1}
-  .hero-art{order:2;margin:0;height:620px}
+  .hero-art{order:2;height:min(78vh,680px)}
 }
 
-/* sections */
-section{padding:4.5rem 0}
-h2{font-family:var(--serif);font-weight:400;font-size:clamp(2rem,6.4vw,3.2rem);line-height:1.1;margin-bottom:1.6rem}
-h2 em{font-style:italic;color:var(--blue)}
-
-/* process */
-.steps{display:grid;gap:2rem;margin-top:.5rem}
-.step{display:grid;grid-template-columns:2.6rem 1fr;gap:.2rem 1rem}
-.step .n{font-family:var(--serif);font-style:italic;color:var(--blue);font-size:1.6rem;line-height:1.1}
-.step h3{font-family:var(--sans);font-weight:500;font-size:1.02rem;margin-bottom:.2rem}
-.step p{color:var(--soft);font-size:.98rem;max-width:40ch}
-.sketch{margin:2.6rem -1.25rem 0;position:relative}
+/* ---------- Process ---------- */
+.steps{display:grid;gap:2.2rem;margin-top:2.4rem;counter-reset:s}
+.step{display:grid;grid-template-columns:3rem 1fr;gap:.1rem 1.1rem}
+.step .n{font-family:var(--serif);font-style:italic;font-size:2rem;line-height:1;color:var(--ambar)}
+.step:nth-child(2) .n{color:var(--amatista)}
+.step:nth-child(3) .n{color:var(--ultramar)}
+:root[data-theme="dark"] .step:nth-child(3) .n{color:var(--azur)}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .step:nth-child(3) .n{color:var(--azur)} }
+.step h3{font-family:var(--sans);font-weight:500;font-size:1.06rem;margin-bottom:.25rem}
+.step p{color:var(--soft);font-size:1rem;max-width:42ch}
+.sketch{margin:3rem -1.25rem 0;position:relative}
 .sketch img{width:100%;mix-blend-mode:multiply}
-.sketch figcaption{font-family:var(--serif);font-style:italic;font-size:.9rem;color:var(--soft);padding:0 1.25rem;margin-top:.4rem}
-@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .sketch img{mix-blend-mode:normal;border-radius:14px} }
-:root[data-theme="dark"] .sketch img{mix-blend-mode:normal;border-radius:14px}
-@media (min-width:860px){
-  .process .wrap{display:grid;grid-template-columns:1fr 1.15fr;gap:4rem;align-items:center}
+.sketch figcaption{font-family:var(--serif);font-style:italic;font-size:1rem;color:var(--soft);padding:0 1.25rem;margin-top:.5rem}
+:root[data-theme="dark"] .sketch img{mix-blend-mode:normal;border-radius:16px}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .sketch img{mix-blend-mode:normal;border-radius:16px} }
+@media (min-width:900px){
+  .process .wrap{display:grid;grid-template-columns:1fr 1.15fr;gap:4.5rem;align-items:center}
   .sketch{margin:0}
   .sketch figcaption{padding:0}
 }
 
-/* charlotte */
-.about{position:relative}
-.about .wash-rose{position:absolute;right:-120px;top:-40px;width:420px;opacity:calc(var(--wash-op) * .9);pointer-events:none}
-.portrait{position:relative;margin-bottom:2.4rem;width:min(100%,420px);aspect-ratio:4/5;border-radius:200px 200px 18px 18px;overflow:hidden;background:var(--paper-2);border:1px solid var(--line)}
+/* ---------- Stones ---------- */
+.stones{overflow:hidden}
+.stones .stone{position:absolute;inset:0;width:100%;height:100%;opacity:.28}
+.stones .wrap{position:relative}
+.stones-head{max-width:640px}
+.gems{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2.4rem 1.4rem;margin-top:3rem}
+.gem{display:grid;gap:.35rem;align-content:start}
+.gem .cab{width:68px;height:68px;border-radius:50%;position:relative;margin-bottom:.8rem;
+  box-shadow:inset 0 -8px 14px rgba(0,0,0,.35), inset 0 6px 10px rgba(255,255,255,.18), 0 14px 24px -12px rgba(0,0,0,.7), 0 0 0 1px rgba(212,175,90,.55), 0 0 0 5px rgba(12,23,71,1), 0 0 0 6px rgba(212,175,90,.35)}
+.gem .cab::after{content:"";position:absolute;left:18%;top:12%;width:42%;height:30%;border-radius:50%;background:radial-gradient(ellipse at center, rgba(255,255,255,.7), rgba(255,255,255,0) 70%);transform:rotate(-20deg)}
+.gem h3{font-family:var(--serif);font-size:1.45rem;line-height:1.1;color:#F3F4F8}
+.gem .from{font-size:.86rem;color:var(--pirita-2)}
+.gem p{font-size:.95rem;color:#B7C0DA;max-width:30ch}
+.c-lapis{background:
+  radial-gradient(circle at 62% 28%, #F0D592 0 1.4px, transparent 2.2px),
+  radial-gradient(circle at 70% 34%, #D4AF5A 0 1px, transparent 1.6px),
+  radial-gradient(circle at 28% 62%, #E8CB86 0 1.2px, transparent 2px),
+  radial-gradient(circle at 34% 70%, #C9A24C 0 .8px, transparent 1.4px),
+  radial-gradient(circle at 55% 74%, #E8CB86 0 1px, transparent 1.6px),
+  radial-gradient(circle at 76% 58%, #D4AF5A 0 .9px, transparent 1.5px),
+  linear-gradient(120deg, transparent 46%, rgba(230,236,245,.45) 49%, transparent 52%),
+  radial-gradient(circle at 40% 35%, #3E62D0, #1F3A9E 55%, #0E1C5E)}
+.c-labra{background:linear-gradient(125deg, transparent 30%, rgba(80,170,200,.75) 45%, rgba(210,190,90,.55) 55%, transparent 68%), radial-gradient(circle at 40% 35%, #6B7783, #3A434D 60%, #22282F)}
+.c-turq{background:repeating-linear-gradient(35deg, transparent 0 9px, rgba(98,72,46,.55) 9px 10px, transparent 10px 23px), radial-gradient(circle at 40% 35%, #7FD6CF, #3BA9A6 55%, #1D7473)}
+.c-azur{background:radial-gradient(circle at 65% 65%, rgba(40,120,220,.9), transparent 45%), radial-gradient(circle at 35% 35%, #3567D6, #1A3596 55%, #0B1A5C)}
+.c-ameti{background:linear-gradient(160deg, rgba(255,255,255,.18), transparent 40%), radial-gradient(circle at 40% 35%, #C3ABE8, #8562C2 50%, #4B2F80)}
+.c-tigre{background:repeating-linear-gradient(100deg, #7A4A16 0 5px, #C98A2B 5px 9px, #E8B95E 9px 11px, #8E5A1D 11px 15px)}
+.c-cuarzo{background:linear-gradient(145deg, rgba(255,255,255,.9), rgba(220,226,238,.55) 40%, rgba(170,180,200,.6) 70%, rgba(240,242,248,.9))}
+.c-nacar{background:conic-gradient(from 40deg, #F4EEE9, #D9E4F2, #EAD9EC, #F3EBD8, #DCEDE9, #F4EEE9)}
+.gems-note{margin-top:3rem;font-size:.86rem;color:#8E99BA;max-width:60ch}
+@media (min-width:700px){ .gems{grid-template-columns:repeat(4,minmax(0,1fr));gap:3rem 2rem} }
+
+/* ---------- Charlotte ---------- */
+.portrait{position:relative;margin-bottom:2.6rem;width:min(100%,430px);aspect-ratio:4/5;border-radius:220px 220px 20px 20px;overflow:hidden;background:var(--bg-2)}
+.portrait::after{content:"";position:absolute;inset:10px;border-radius:212px 212px 14px 14px;border:1px solid rgba(243,244,248,.7);pointer-events:none}
+.portrait-frame{padding:8px;border-radius:228px 228px 26px 26px;background:linear-gradient(160deg,#E8CB86,#BFC5D2 40%,#D4AF5A 70%,#BFC5D2);width:fit-content;margin-bottom:2.6rem}
+.portrait-frame .portrait{margin:0}
 .portrait img{width:100%;height:100%;object-fit:cover}
-.portrait .ph{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:2rem;color:var(--soft);font-size:.88rem}
-.portrait .ph b{display:block;font-family:var(--serif);font-weight:400;font-style:italic;font-size:1.5rem;color:var(--blue);margin-bottom:.4rem}
-blockquote{font-family:var(--serif);font-style:italic;font-size:clamp(1.35rem,4.6vw,1.8rem);line-height:1.35;color:var(--ink);margin:2rem 0 1.4rem;max-width:26ch}
-blockquote footer{font-family:var(--sans);font-style:normal;font-size:.85rem;color:var(--soft);margin-top:.7rem}
+blockquote{font-family:var(--serif);font-style:italic;font-size:clamp(1.5rem,4.8vw,2.1rem);line-height:1.3;color:var(--head);margin:0 0 1.6rem;max-width:24ch}
 .about p{max-width:46ch;margin-bottom:1rem}
-@media (min-width:860px){
-  .about .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:4.5rem;align-items:center}
-  blockquote{margin-top:0} .portrait{margin-bottom:0}
+@media (min-width:900px){
+  .about .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:5rem;align-items:center}
+  .portrait-frame{margin-bottom:0}
 }
 
-/* offer */
-.offer{position:relative}
-.offer .wash-low{position:absolute;left:-160px;bottom:-40px;width:560px;opacity:var(--wash-op);pointer-events:none}
-.card{position:relative;background:color-mix(in srgb, var(--paper-2) 86%, transparent);border:1px solid var(--line);border-radius:22px;padding:2rem 1.5rem;max-width:620px;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
-.price{display:flex;align-items:baseline;gap:.9rem;margin:.6rem 0 .2rem}
-.price .now{font-family:var(--serif);font-size:clamp(3.4rem,14vw,4.6rem);line-height:1}
-.price .was{font-family:var(--serif);font-size:1.5rem;color:var(--soft);text-decoration:line-through;text-decoration-thickness:1px}
-.plus{color:var(--soft);font-size:.95rem}
-.incl{list-style:none;margin:1.6rem 0 1.4rem;display:grid;gap:.75rem}
-.incl li{position:relative;padding-left:1.6rem;font-size:.98rem}
-.incl li::before{content:"";position:absolute;left:0;top:.62em;width:.62rem;height:.62rem;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:var(--blue);opacity:.75}
-.why{font-size:.92rem;color:var(--soft);border-top:1px solid var(--line);padding-top:1.1rem;margin-bottom:1.6rem}
-.offer .btn{width:100%}
-@media (min-width:600px){ .offer .btn{width:auto} .card{padding:2.6rem 2.6rem} }
+/* ---------- Offer ---------- */
+.offer{overflow:hidden}
+.offer .stone{position:absolute;inset:0;width:100%;height:100%;opacity:.55}
+.offer::after{content:"";position:absolute;inset:0;background:radial-gradient(90% 70% at 50% 50%, rgba(12,23,71,.2), rgba(12,23,71,.85));pointer-events:none}
+.card{position:relative;z-index:1;max-width:640px;margin-inline:auto;text-align:center;padding:clamp(2.4rem,6vw,3.6rem) clamp(1.5rem,5vw,3.4rem);border-radius:28px;background:linear-gradient(180deg, rgba(12,23,71,.82), rgba(12,23,71,.92));border:1px solid rgba(212,175,90,.45);box-shadow:0 40px 80px -40px rgba(0,0,0,.8);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.card .rule{margin-inline:auto}
+.card h2{margin-bottom:.4rem}
+.card .sub{color:#B7C0DA}
+.price{display:flex;align-items:baseline;justify-content:center;gap:1rem;margin:1.8rem 0 .3rem}
+.price .now{font-family:var(--serif);font-size:clamp(4rem,16vw,5.6rem);line-height:1;color:var(--pirita-2)}
+.price .was{font-family:var(--serif);font-size:1.6rem;color:#8E99BA;text-decoration:line-through;text-decoration-thickness:1px}
+.incl{list-style:none;margin:2rem auto 1.8rem;display:grid;gap:.85rem;text-align:left;max-width:420px}
+.incl li{position:relative;padding-left:1.8rem;font-size:1rem;color:#DDE2F0}
+.incl li::before{content:"";position:absolute;left:.15rem;top:.55em;width:.62rem;height:.62rem;transform:rotate(45deg);background:linear-gradient(135deg,#E8CB86,#B8903A)}
+.why{font-size:.94rem;color:#A9B2CB;border-top:1px solid rgba(212,175,90,.3);padding-top:1.3rem;margin:0 auto 1.8rem;max-width:44ch}
+.card .btn{width:100%}
+@media (min-width:600px){ .card .btn{width:auto} }
 
-/* faq */
-.faq .wrap{max-width:760px}
+/* ---------- FAQ ---------- */
+.faq .wrap{max-width:780px}
 details{border-top:1px solid var(--line)}
 details:last-of-type{border-bottom:1px solid var(--line)}
-summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.15rem 0;font-weight:400;font-size:1.02rem}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.25rem 0;font-weight:400;font-size:1.06rem}
 summary::-webkit-details-marker{display:none}
-summary::after{content:"";width:.7rem;height:.7rem;border-right:1.5px solid var(--soft);border-bottom:1.5px solid var(--soft);transform:rotate(45deg) translateY(-3px);transition:transform .25s;flex:none}
+summary::after{content:"";width:.7rem;height:.7rem;border-right:1.5px solid var(--pirita);border-bottom:1.5px solid var(--pirita);transform:rotate(45deg) translateY(-3px);transition:transform .25s;flex:none}
 details[open] summary::after{transform:rotate(225deg) translateY(-2px)}
-details p{color:var(--soft);padding:0 0 1.2rem;max-width:56ch;font-size:.97rem}
+details p{color:var(--soft);padding:0 0 1.3rem;max-width:58ch}
 
-/* closing */
-.closing{text-align:center;padding:5rem 0 6rem}
-.closing h2{max-width:18ch;margin-inline:auto}
-.closing .micro{margin-top:1rem}
+/* ---------- Closing ---------- */
+.closing{text-align:center;overflow:hidden}
+.closing .stone{position:absolute;inset:0;width:100%;height:100%;opacity:.4}
+.closing .wrap{position:relative}
+.closing h2{max-width:16ch;margin-inline:auto}
+.closing .rule{margin-inline:auto}
+.closing .micro{margin-top:1.2rem}
 
-/* footer (Master: karlaleon-website) */
-.site-foot{background:#1F3A72;color:#C3CFE6;font-size:.9rem}
+/* ---------- Footer (Master: karlaleon-website) ---------- */
+.site-foot{background:#0A1440;color:#AEB7D2;font-size:.9rem;border-top:1px solid rgba(212,175,90,.25)}
 .site-foot .wrap{padding-block:34px;display:flex;flex-wrap:wrap;gap:14px 28px;justify-content:space-between;align-items:center}
-.site-foot .logo{color:#FBF9F4}
-.site-foot a{color:#E9EEF8;text-decoration:none}
+.site-foot a{color:#E9ECF4;text-decoration:none}
 .site-foot a:hover{text-decoration:underline;text-underline-offset:3px}
 .site-foot nav{display:flex;gap:20px;flex-wrap:wrap}
+.foot-brand{display:inline-flex;align-items:center;gap:.9rem;flex-wrap:wrap}
 /* Firma Ezencia */
-.sig{background:#16203A;border-top:1px solid rgba(201,161,74,.28)}
+.sig{background:#070E30;border-top:1px solid rgba(201,161,74,.28)}
 .sig .wrap{padding-block:30px;display:flex;justify-content:center}
 .site-foot a.ez{display:inline-flex;align-items:center;gap:22px;text-decoration:none;color:#F3EFE7;padding:12px 18px;border-radius:16px;transition:background .35s ease}
 .ez:hover,.ez:focus-visible{background:rgba(243,239,231,.045)}
@@ -193,93 +244,151 @@ details p{color:var(--soft);padding:0 0 1.2rem;max-width:56ch;font-size:.97rem}
   .ez-wm{height:32px}
   .site-foot .wrap{padding-bottom:28px}
 }
-/* Platz für die mobile Sticky-Leiste */
-@media (max-width:859px){ .sig .wrap{padding-block:30px calc(120px + env(safe-area-inset-bottom,0px))} }
+@media (max-width:899px){ .sig .wrap{padding-block:30px calc(120px + env(safe-area-inset-bottom,0px))} }
 @media (prefers-reduced-motion:reduce){.ez-z,.ez-z img,.ez-go{transition:none}}
 
-/* sticky mobile cta */
-.dock{position:fixed;left:0;right:0;bottom:0;z-index:25;padding:.75rem 1rem calc(.75rem + env(safe-area-inset-bottom,0px));
-  background:var(--nav);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-top:1px solid var(--line);
+/* ---------- Sticky mobile CTA ---------- */
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:25;padding:.8rem 1rem calc(.8rem + env(safe-area-inset-bottom,0px));
+  background:rgba(12,23,71,.92);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border-top:1px solid rgba(212,175,90,.3);
   display:flex;align-items:center;gap:.9rem;transform:translateY(110%);transition:transform .35s ease}
 .dock.show{transform:none}
-.dock .txt{font-size:.8rem;line-height:1.3;color:var(--soft);flex:1}
-.dock .txt b{display:block;font-weight:500;color:var(--ink);font-size:.9rem}
-.dock .btn{padding:.8rem 1.1rem;font-size:.92rem}
-@media (min-width:860px){ .dock{display:none} }
+.dock .txt{font-size:.82rem;line-height:1.3;color:#A9B2CB;flex:1}
+.dock .txt b{display:block;font-family:var(--serif);font-weight:500;color:var(--pirita-2);font-size:1rem}
+.dock .btn{padding:.8rem 1.15rem;font-size:.92rem}
+@media (min-width:900px){ .dock{display:none} }
 
-/* one orchestrated entrance */
+/* ---------- One orchestrated entrance ---------- */
 @media (prefers-reduced-motion: no-preference){
-  .hero-art .wash{animation:bloom 1.6s ease-out both}
-  .hero-art .piece{animation:settle 1.2s .25s cubic-bezier(.2,.7,.2,1) both}
-  @keyframes bloom{from{opacity:0;transform:scale(.92)}to{opacity:var(--wash-op);transform:none}}
-  @keyframes settle{from{opacity:0;transform:translate(-50%,-44%) rotate(-6deg)}to{opacity:1;transform:translate(-50%,-50%) rotate(-3deg)}}
+  .hero-art img{animation:settle 1.4s .2s cubic-bezier(.2,.7,.2,1) both}
+  .hero-copy{animation:rise 1s .5s ease-out both}
+  @keyframes settle{from{opacity:0;transform:translateY(-28px) rotate(-9deg) scale(.96)}to{opacity:1;transform:rotate(-4deg)}}
+  @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 }
 @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} .dock{transition:none} }
 </style>
 </head>
 <body>
-<div class="grain" aria-hidden="true"></div>
+
+<!-- Lapislázuli: ultramar, kalzit-adern, pirit-splitter (prozedural, keine fremden fotos) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="lapis" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+      <feFlood flood-color="#1F3A9E" result="base"/>
+      <feTurbulence type="fractalNoise" baseFrequency=".0045 .0065" numOctaves="4" seed="11" result="n1"/>
+      <feColorMatrix in="n1" type="matrix" values="0 0 0 0 .035  0 0 0 0 .075  0 0 0 0 .29  2.6 0 0 0 -1.05" result="deep"/>
+      <feTurbulence type="fractalNoise" baseFrequency=".011 .014" numOctaves="3" seed="4" result="n2"/>
+      <feColorMatrix in="n2" type="matrix" values="0 0 0 0 .27  0 0 0 0 .42  0 0 0 0 .86  3.2 0 0 0 -1.75" result="light"/>
+      <!-- kalzit: dünne, unregelmäßige adern (turbulence-grate) -->
+      <feTurbulence type="turbulence" baseFrequency=".0032 .0042" numOctaves="4" seed="23" result="n3"/>
+      <feColorMatrix in="n3" type="matrix" values="0 0 0 0 .9  0 0 0 0 .92  0 0 0 0 .97  -16 0 0 0 1.25" result="v0"/>
+      <feTurbulence type="fractalNoise" baseFrequency=".004" numOctaves="2" seed="31" result="vm"/>
+      <feColorMatrix in="vm" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  4 0 0 0 -1.5" result="vmask"/>
+      <feComposite in="v0" in2="vmask" operator="in" result="veins0"/>
+      <feComponentTransfer in="veins0" result="veins"><feFuncA type="linear" slope=".6"/></feComponentTransfer>
+      <!-- pirita: goldsplitter in nestern, nicht gleichmäßig -->
+      <feTurbulence type="fractalNoise" baseFrequency=".02" numOctaves="2" seed="7" result="pm"/>
+      <feColorMatrix in="pm" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  6 0 0 0 -3.1" result="pmask"/>
+      <feTurbulence type="fractalNoise" baseFrequency=".55" numOctaves="1" seed="3" result="n4"/>
+      <feColorMatrix in="n4" type="matrix" values="0 0 0 0 .93  0 0 0 0 .79  0 0 0 0 .42  16 0 0 0 -10.2" result="p1"/>
+      <feTurbulence type="fractalNoise" baseFrequency=".16" numOctaves="2" seed="19" result="n5"/>
+      <feColorMatrix in="n5" type="matrix" values="0 0 0 0 .84  0 0 0 0 .67  0 0 0 0 .31  12 0 0 0 -8.1" result="p2"/>
+      <feMerge result="p12"><feMergeNode in="p2"/><feMergeNode in="p1"/></feMerge>
+      <feComposite in="p12" in2="pmask" operator="in" result="pyrite"/>
+      <feMerge><feMergeNode in="base"/><feMergeNode in="deep"/><feMergeNode in="light"/><feMergeNode in="veins"/><feMergeNode in="pyrite"/></feMerge>
+    </filter>
+  </defs>
+</svg>
 
 <header class="nav" id="top-nav">
   <div class="wrap">
-    <a class="logo" href="#inicio" aria-label="NuMA, inicio">N<span>u</span>MA</a>
+    <a class="brand" href="#inicio" aria-label="NuMA, inicio">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M7 4.5 22.5 2.8 29 11.4 26.6 25.8 12.4 29.4 3.2 19.6Z" fill="#1F3A9E" stroke="#E8CB86" stroke-width="1"/><path d="M7 4.5 15.6 13 29 11.4M15.6 13 12.4 29.4M15.6 13 3.2 19.6" fill="none" stroke="#4E73DA" stroke-width=".7" opacity=".9"/><circle cx="20" cy="9" r="1" fill="#E8CB86"/><circle cx="10" cy="20" r=".8" fill="#E8CB86"/><circle cx="22" cy="20.5" r=".7" fill="#E8CB86"/></svg>
+      <b>N<i>u</i>MA</b>
+    </a>
     <nav aria-label="Secciones">
       <ul>
         <li><a href="#como">Cómo</a></li>
+        <li><a href="#piedras">Piedras</a></li>
         <li><a href="#charlotte">Charlotte</a></li>
         <li><a href="#precio">Precio</a></li>
         <li><a href="#preguntas">Preguntas</a></li>
       </ul>
     </nav>
-    <a class="btn nav-cta" href="https://api.whatsapp.com/send/?phone=34642527397&amp;text=Hola%20Charlotte%2C%20vengo%20de%20la%20web%20de%20NuMA%20y%20quiero%20saber%20m%C3%A1s%20%F0%9F%92%99" target="_blank" rel="noopener">Escríbeme</a>
+    <a class="btn btn-gold nav-cta" href="https://api.whatsapp.com/send/?phone=34642527397&amp;text=Hola%20Charlotte%2C%20vengo%20de%20la%20web%20de%20NuMA%20y%20quiero%20saber%20m%C3%A1s%20%F0%9F%92%99" target="_blank" rel="noopener">Escríbeme</a>
   </div>
 </header>
 
 <main>
   <section class="hero" id="inicio" aria-labelledby="h1">
+    <svg class="stone" aria-hidden="true" preserveAspectRatio="none"><rect width="100%" height="100%" filter="url(#lapis)"/></svg>
     <div class="wrap">
-      <div class="hero-art" aria-hidden="false">
-        <img class="wash" src="assets/wash-hero.webp" alt="" aria-hidden="true">
-        <img class="piece" src="assets/necklace.webp" alt="Collar de Charlotte con piezas de lapislázuli, nácar y cuentas azul claro" width="900" height="1152">
+      <div class="hero-art">
+        <img src="assets/necklace.webp" alt="Collar de Charlotte con placas de lapislázuli, nácar y cuentas azul claro" width="900" height="1152" fetchpriority="high">
       </div>
       <div class="hero-copy">
-        <span class="pill">Primera edición: 5 plazas a 100 €</span>
-        <h1 id="h1">Tu historia, <em>hecha joya.</em></h1>
-        <p class="lead">Primero escucho tu historia. Después la dibujo. Al final, la creo con mis manos: una joya que solo puede ser tuya.</p>
+        <p class="edition">Edición fundacional: 5 plazas</p>
+        <h1 id="h1">Tu historia,<span>hecha joya.</span></h1>
+        <p class="lead">Primero escucho tu historia. Después la pinto en acuarela. Al final la creo con mis manos, en piedra natural y metal: una joya que solo puede ser tuya.</p>
         <div class="cta-row">
-          <a class="btn" href="https://api.whatsapp.com/send/?phone=34642527397&amp;text=Hola%20Charlotte%2C%20vengo%20de%20la%20web%20de%20NuMA%20y%20quiero%20saber%20m%C3%A1s%20%F0%9F%92%99" target="_blank" rel="noopener" id="hero-cta"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91A9.85 9.85 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24a8.2 8.2 0 0 1 8.24 8.25c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.16.04-.31-.02-.43-.06-.13-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.07-.1-.23-.16-.48-.29Z"/></svg>Escríbeme por WhatsApp</a>
-          <a class="link" href="#como">Cómo funciona</a>
+          <a class="btn btn-gold" href="https://api.whatsapp.com/send/?phone=34642527397&amp;text=Hola%20Charlotte%2C%20vengo%20de%20la%20web%20de%20NuMA%20y%20quiero%20saber%20m%C3%A1s%20%F0%9F%92%99" target="_blank" rel="noopener" id="hero-cta"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.450 9.91-9.91A9.85 9.85 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.150l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24a8.2 8.2 0 0 1 8.24 8.25c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.230-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.16.04-.31-.02-.43-.06-.13-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.07-.1-.23-.16-.48-.29Z"/></svg>Escríbeme por WhatsApp</a>
+          <a class="link" href="#como">Cómo nace tu pieza</a>
         </div>
         <p class="micro">Te respondo yo misma, normalmente el mismo día. Sin compromiso.</p>
       </div>
     </div>
   </section>
 
-  <section class="process" id="como" aria-labelledby="h-como">
+  <section class="process light" id="como" aria-labelledby="h-como">
     <div class="wrap">
       <div>
-        <h2 id="h-como">Cómo nace <em>tu pieza</em></h2>
+        <span class="rule" aria-hidden="true"></span>
+        <h2 id="h-como">Cómo nace tu pieza</h2>
+        <p class="intro">Tres encuentros con tu historia: la escucho, la pinto y la llevo a la piedra.</p>
         <div class="steps">
           <div class="step"><span class="n" aria-hidden="true">i</span><div><h3>Nos encontramos</h3><p>En tu casa, en tu hotel o en un lugar que te guste. Unas horas para ti, con calma y sin prisa.</p></div></div>
           <div class="step"><span class="n" aria-hidden="true">ii</span><div><h3>Escucho y dibujo</h3><p>Una persona, un recuerdo o una etapa de tu vida. La traduzco en acuarela y lápiz, a mano.</p></div></div>
-          <div class="step"><span class="n" aria-hidden="true">iii</span><div><h3>La creo para ti</h3><p>Elegimos juntos materiales con significado. Después la hago a mano: una pieza única, solo para ti.</p></div></div>
+          <div class="step"><span class="n" aria-hidden="true">iii</span><div><h3>La creo para ti</h3><p>Elegimos juntos las piedras y su significado. Después la hago a mano: una pieza única, solo para ti.</p></div></div>
         </div>
       </div>
       <figure class="sketch">
-        <img src="assets/sketch.webp" alt="Boceto en acuarela naranja y violeta con dos pendientes dibujados a lápiz y notas: perla cerámica, metal dorado, perla dorada" width="1200" height="922" loading="lazy">
+        <img src="assets/sketch.webp" alt="Boceto en acuarela naranja y violeta con dos pendientes dibujados a lápiz y notas: perla cerámica, metal dorado, perla dorada" width="1200" height="749" loading="lazy">
         <figcaption>Acuarela y lápiz: así empieza cada pieza.</figcaption>
       </figure>
     </div>
   </section>
 
-  <section class="about" id="charlotte" aria-labelledby="h-charlotte">
-    <img class="wash-rose" src="assets/wash-rose.webp" alt="" aria-hidden="true" loading="lazy">
+  <section class="stones dark" id="piedras" aria-labelledby="h-piedras">
+    <svg class="stone" aria-hidden="true" preserveAspectRatio="none"><rect width="100%" height="100%" filter="url(#lapis)"/></svg>
     <div class="wrap">
-      <div class="portrait">
-        <img src="assets/portrait.webp" alt="Charlotte, joyera y artista, en su taller" width="800" height="1000" loading="lazy">
+      <div class="stones-head">
+        <span class="rule" aria-hidden="true"></span>
+        <h2 id="h-piedras">Piedras que cuentan algo</h2>
+        <p class="intro">Cada piedra trae su origen y su propia historia. Elegimos juntos las que hablan de la tuya.</p>
+      </div>
+      <ul class="gems">
+        <li class="gem"><span class="cab c-lapis" aria-hidden="true"></span><h3>Lapislázuli</h3><span class="from">Afganistán y Chile</span><p>La piedra de los faraones. Se asocia a la verdad y la sabiduría.</p></li>
+        <li class="gem"><span class="cab c-labra" aria-hidden="true"></span><h3>Labradorita</h3><span class="from">Canadá, Finlandia y Madagascar</span><p>Su destello cambia con la luz. Se asocia a la intuición y la protección.</p></li>
+        <li class="gem"><span class="cab c-turq" aria-hidden="true"></span><h3>Turquesa</h3><span class="from">Irán, Estados Unidos y China</span><p>El amuleto de los viajeros. Se asocia a la protección y la comunicación.</p></li>
+        <li class="gem"><span class="cab c-azur" aria-hidden="true"></span><h3>Azurita</h3><span class="from">Marruecos, México y Estados Unidos</span><p>Un azul profundo. Se asocia a la claridad mental y la intuición.</p></li>
+        <li class="gem"><span class="cab c-ameti" aria-hidden="true"></span><h3>Amatista</h3><span class="from">Brasil y Uruguay</span><p>Se asocia a la calma, la serenidad y el buen descanso.</p></li>
+        <li class="gem"><span class="cab c-tigre" aria-hidden="true"></span><h3>Ojo de tigre</h3><span class="from">Sudáfrica y Australia</span><p>Se asocia al valor, la confianza y la protección.</p></li>
+        <li class="gem"><span class="cab c-cuarzo" aria-hidden="true"></span><h3>Cuarzo</h3><span class="from">Brasil y Madagascar</span><p>La piedra de la claridad. Se dice que amplifica la intención.</p></li>
+        <li class="gem"><span class="cab c-nacar" aria-hidden="true"></span><h3>Nácar</h3><span class="from">Del interior de las conchas marinas</span><p>Nace del mar, capa a capa. Se asocia a la calma y al cuidado.</p></li>
+      </ul>
+      <p class="gems-note">Los significados vienen de la tradición, no son promesas. Si tienes una piedra que te importa, o algo tuyo que quieras incluir, lo hablamos.</p>
+    </div>
+  </section>
+
+  <section class="about light" id="charlotte" aria-labelledby="h-charlotte">
+    <div class="wrap">
+      <div class="portrait-frame">
+        <div class="portrait">
+          <img src="assets/portrait.webp" alt="Charlotte, joyera y artista, en su taller" width="800" height="1000" loading="lazy">
+        </div>
       </div>
       <div>
-        <h2 id="h-charlotte">Soy <em>Charlotte</em></h2>
+        <span class="rule" aria-hidden="true"></span>
+        <h2 id="h-charlotte">Soy Charlotte</h2>
         <blockquote>«Me encanta ir hondo con las personas y encontrar quiénes son de verdad.»</blockquote>
         <p>Soy joyera de formación —Bellas Artes, metal y oficio— y artista. Pinto, dibujo y creo con las manos.</p>
         <p>En NuMA junto las dos cosas: escuchar a una persona y traducir lo que es en una pieza que puede llevar puesta. El nombre viene de Nuria y Marisa, mi abuela y mi madre: el amor y el cuidado con los que aprendí a crear.</p>
@@ -288,31 +397,34 @@ details p{color:var(--soft);padding:0 0 1.2rem;max-width:56ch;font-size:.97rem}
     </div>
   </section>
 
-  <section class="offer" id="precio" aria-labelledby="h-precio">
-    <img class="wash-low" src="assets/wash-low.webp" alt="" aria-hidden="true" loading="lazy">
+  <section class="offer dark" id="precio" aria-labelledby="h-precio">
+    <svg class="stone" aria-hidden="true" preserveAspectRatio="none"><rect width="100%" height="100%" filter="url(#lapis)"/></svg>
     <div class="wrap">
       <div class="card">
-        <h2 id="h-precio">Primera <em>edición</em></h2>
-        <p class="plus">Experiencia y joya única</p>
+        <span class="rule" aria-hidden="true"></span>
+        <h2 id="h-precio">Edición fundacional</h2>
+        <p class="sub">La experiencia y tu joya única</p>
         <div class="price"><span class="now">100&#8239;€</span><span class="was" aria-label="Precio habitual 500 euros">500&#8239;€</span></div>
-        <p class="plus">+ materiales, que elegimos juntos</p>
+        <p class="sub">+ materiales, que elegimos juntos</p>
         <ul class="incl">
           <li>Unas horas contigo, en el lugar que elijas</li>
-          <li>Tu historia, dibujada a mano en acuarela</li>
-          <li>Una joya única, hecha por mí</li>
-          <li>Del latón a la piedra natural, o algo tuyo que quieras incluir. Te digo el precio de los materiales antes de empezar.</li>
+          <li>Tu historia, pintada a mano en acuarela</li>
+          <li>Una joya única de piedra natural, hecha por mí</li>
+          <li>Del latón a la piedra que elijas, o algo tuyo que quieras incluir. Te digo el precio de los materiales antes de empezar.</li>
         </ul>
         <p class="why">Solo para 5 personas. A cambio te pido tu opinión sincera y, si te apetece, que pueda enseñar cómo nace tu pieza.</p>
-        <a class="btn" href="https://api.whatsapp.com/send/?phone=34642527397&amp;text=Hola%20Charlotte%2C%20vengo%20de%20la%20web%20de%20NuMA%20y%20quiero%20saber%20m%C3%A1s%20%F0%9F%92%99" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91A9.85 9.85 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24a8.2 8.2 0 0 1 8.24 8.25c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.16.04-.31-.02-.43-.06-.13-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.07-.1-.23-.16-.48-.29Z"/></svg>Quiero una de las 5 plazas</a>
+        <a class="btn btn-gold" href="https://api.whatsapp.com/send/?phone=34642527397&amp;text=Hola%20Charlotte%2C%20vengo%20de%20la%20web%20de%20NuMA%20y%20quiero%20saber%20m%C3%A1s%20%F0%9F%92%99" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91A9.85 9.85 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24a8.2 8.2 0 0 1 8.24 8.25c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.16.04-.31-.02-.43-.06-.13-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.07-.1-.23-.16-.48-.29Z"/></svg>Quiero una de las 5 plazas</a>
       </div>
     </div>
   </section>
 
-  <section class="faq" id="preguntas" aria-labelledby="h-faq">
+  <section class="faq light" id="preguntas" aria-labelledby="h-faq">
     <div class="wrap">
+      <span class="rule" aria-hidden="true"></span>
       <h2 id="h-faq">Preguntas</h2>
       <details><summary>¿Cuánto dura el encuentro?</summary><p>Unas horas, sin prisa. Lo adaptamos a ti y a tu historia.</p></details>
       <details><summary>¿Dónde nos vemos?</summary><p>En tu casa, en tu hotel o en un lugar que te guste, en Tenerife.</p></details>
+      <details><summary>¿Qué piedras puedo elegir?</summary><p>Lapislázuli, labradorita, turquesa, amatista y muchas más. Las elegimos juntos según tu historia y su significado.</p></details>
       <details><summary>¿Cuánto cuestan los materiales?</summary><p>Depende de lo que elijamos juntos. Te digo el precio antes de empezar, así sabes el total antes de decidir.</p></details>
       <details><summary>¿Cuándo está lista mi joya?</summary><p>Depende de la pieza y del material. Te doy una fecha antes de empezar.</p></details>
       <details><summary>¿Puedo regalarla?</summary><p>Sí. La experiencia también puede ser un regalo para alguien especial.</p></details>
@@ -320,18 +432,23 @@ details p{color:var(--soft);padding:0 0 1.2rem;max-width:56ch;font-size:.97rem}
     </div>
   </section>
 
-  <section class="closing" aria-labelledby="h-close">
+  <section class="closing dark" aria-labelledby="h-close">
+    <svg class="stone" aria-hidden="true" preserveAspectRatio="none"><rect width="100%" height="100%" filter="url(#lapis)"/></svg>
     <div class="wrap">
-      <h2 id="h-close">¿Tienes una historia que quieras <em>llevar contigo?</em></h2>
-      <a class="btn" href="https://api.whatsapp.com/send/?phone=34642527397&amp;text=Hola%20Charlotte%2C%20vengo%20de%20la%20web%20de%20NuMA%20y%20quiero%20saber%20m%C3%A1s%20%F0%9F%92%99" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91A9.85 9.85 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24a8.2 8.2 0 0 1 8.24 8.25c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.16.04-.31-.02-.43-.06-.13-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.07-.1-.23-.16-.48-.29Z"/></svg>Escríbeme por WhatsApp</a>
-      <p class="micro">Quedan plazas en la primera edición.</p>
+      <span class="rule" aria-hidden="true"></span>
+      <h2 id="h-close">¿Tienes una historia que quieras llevar contigo?</h2>
+      <a class="btn btn-gold" href="https://api.whatsapp.com/send/?phone=34642527397&amp;text=Hola%20Charlotte%2C%20vengo%20de%20la%20web%20de%20NuMA%20y%20quiero%20saber%20m%C3%A1s%20%F0%9F%92%99" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91A9.85 9.85 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24a8.2 8.2 0 0 1 8.24 8.25c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.16.04-.31-.02-.43-.06-.13-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.07-.1-.23-.16-.48-.29Z"/></svg>Escríbeme por WhatsApp</a>
+      <p class="micro">Quedan plazas en la edición fundacional.</p>
     </div>
   </section>
 </main>
 
 <footer class="site-foot">
   <div class="wrap">
-    <span><span class="logo">N<span>u</span>MA</span> &nbsp;·&nbsp; Joyas con significado, hechas a mano en Tenerife.</span>
+    <span class="foot-brand">
+      <span class="brand"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M7 4.5 22.5 2.8 29 11.4 26.6 25.8 12.4 29.4 3.2 19.6Z" fill="#1F3A9E" stroke="#E8CB86" stroke-width="1"/><path d="M7 4.5 15.6 13 29 11.4M15.6 13 12.4 29.4M15.6 13 3.2 19.6" fill="none" stroke="#4E73DA" stroke-width=".7" opacity=".9"/><circle cx="20" cy="9" r="1" fill="#E8CB86"/><circle cx="10" cy="20" r=".8" fill="#E8CB86"/><circle cx="22" cy="20.5" r=".7" fill="#E8CB86"/></svg><b>N<i>u</i>MA</b></span>
+      <span>Joyas con significado, hechas a mano en Tenerife.</span>
+    </span>
     <nav aria-label="Contacto"><a href="https://api.whatsapp.com/send/?phone=34642527397&amp;text=Hola%20Charlotte%2C%20vengo%20de%20la%20web%20de%20NuMA%20y%20quiero%20saber%20m%C3%A1s%20%F0%9F%92%99" target="_blank" rel="noopener">WhatsApp +34 642 52 73 97</a></nav>
   </div>
   <div class="sig">
@@ -349,19 +466,18 @@ details p{color:var(--soft);padding:0 0 1.2rem;max-width:56ch;font-size:.97rem}
 </footer>
 
 <div class="dock" id="dock" aria-hidden="true">
-  <div class="txt"><b>Primera edición</b>5 plazas a 100&#8239;€ + materiales</div>
-  <a class="btn" href="https://api.whatsapp.com/send/?phone=34642527397&amp;text=Hola%20Charlotte%2C%20vengo%20de%20la%20web%20de%20NuMA%20y%20quiero%20saber%20m%C3%A1s%20%F0%9F%92%99" target="_blank" rel="noopener" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91A9.85 9.85 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24a8.2 8.2 0 0 1 8.24 8.25c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.16.04-.31-.02-.43-.06-.13-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.07-.1-.23-.16-.48-.29Z"/></svg>Escríbeme</a>
+  <div class="txt"><b>Edición fundacional</b>5 plazas a 100&#8239;€ + materiales</div>
+  <a class="btn btn-gold" href="https://api.whatsapp.com/send/?phone=34642527397&amp;text=Hola%20Charlotte%2C%20vengo%20de%20la%20web%20de%20NuMA%20y%20quiero%20saber%20m%C3%A1s%20%F0%9F%92%99" target="_blank" rel="noopener" tabindex="-1">Escríbeme</a>
 </div>
 
 <script>
 (function(){
   var nav=document.getElementById('top-nav');
-  function onScroll(){ nav.classList.toggle('scrolled', window.scrollY>8); }
+  function onScroll(){ nav.classList.toggle('scrolled', window.scrollY>12); }
   window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
 
   var dock=document.getElementById('dock'), cta=document.getElementById('hero-cta');
   if('IntersectionObserver' in window){
-    var seen=false;
     new IntersectionObserver(function(e){
       var past=!e[0].isIntersecting && e[0].boundingClientRect.top<0;
       dock.classList.toggle('show',past);
@@ -370,7 +486,7 @@ details p{color:var(--soft);padding:0 0 1.2rem;max-width:56ch;font-size:.97rem}
     },{threshold:0}).observe(cta);
   }
 
-  var ids=['inicio','como','charlotte','precio','preguntas'];
+  var ids=['inicio','como','piedras','charlotte','precio','preguntas'];
   var h=(location.hash||'').slice(1);
   if(ids.indexOf(h)>-1){ var el=document.getElementById(h); if(el){ setTimeout(function(){ el.scrollIntoView(); },60); } }
 })();
