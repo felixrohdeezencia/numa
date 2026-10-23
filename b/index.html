@@ -48,8 +48,8 @@ p.big{font-size:clamp(1.15rem,2.4vw,1.35rem);line-height:1.6;max-width:40ch}
 /* buttons */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;text-decoration:none;font-weight:500;font-size:1rem;padding:1.05rem 1.6rem;border-radius:999px;transition:transform .2s ease, background .2s ease}
 .btn svg{width:20px;height:20px;flex:none}
-.btn-cobre{background:var(--cobre);color:#FFF8F0;box-shadow:0 14px 30px -16px rgba(184,115,58,.9)}
-.btn-cobre:hover{background:#A9652F;transform:translateY(-1px)}
+.btn-cobre{background:#9A5A28;color:#FFF8F0;box-shadow:0 10px 24px -14px rgba(0,0,0,.6)}
+.btn-cobre:hover{background:#85491F;transform:translateY(-1px)}
 .btn-line{border:1px solid currentColor}
 .btn-line:hover{background:rgba(255,255,255,.06)}
 
@@ -72,7 +72,7 @@ p.big{font-size:clamp(1.15rem,2.4vw,1.35rem);line-height:1.6;max-width:40ch}
 /* chest / crowns */
 .chest .wrap{display:grid;gap:3rem}
 .chest h2 em{font-style:normal;color:var(--accent)}
-.crowns{border-left:2px solid var(--cobre);padding-left:1.4rem}
+.crowns{border-top:1px solid var(--cobre);padding-top:1.4rem}
 .crowns blockquote{font-size:clamp(1.6rem,4vw,2.4rem);line-height:1.2;max-width:22ch}
 @media (min-width:900px){ .chest .wrap{grid-template-columns:1.1fr .9fr;align-items:end;gap:5rem} }
 
@@ -85,8 +85,8 @@ p.big{font-size:clamp(1.15rem,2.4vw,1.35rem);line-height:1.6;max-width:40ch}
 .sign{padding:.7rem .4rem;border-radius:12px;border:1px solid rgba(240,199,154,.25);text-align:center;line-height:1.2;transition:background .2s,border-color .2s}
 .sign b{display:block;font-weight:500;font-size:.95rem}
 .sign span{font-size:.72rem;color:#9FB6AC}
-.sign[aria-pressed="true"]{background:var(--cobre);border-color:var(--cobre);color:#FFF8F0}
-.sign[aria-pressed="true"] span{color:#FCE9D6}
+.sign[aria-pressed="true"]{background:#9A5A28;border-color:#9A5A28;color:#FFF8F0}
+.sign[aria-pressed="true"] span{color:#FFF8F0}
 .colors{display:flex;flex-wrap:wrap;gap:.6rem}
 .color{display:inline-flex;align-items:center;gap:.55rem;padding:.45rem .9rem .45rem .45rem;border-radius:999px;border:1px solid rgba(240,199,154,.25);font-size:.92rem;transition:background .2s,border-color .2s}
 .color i{width:26px;height:26px;border-radius:50%;box-shadow:inset 0 -4px 6px rgba(0,0,0,.3), inset 0 3px 5px rgba(255,255,255,.3)}
@@ -133,6 +133,7 @@ p.big{font-size:clamp(1.15rem,2.4vw,1.35rem);line-height:1.6;max-width:40ch}
 .price li{padding-left:1.6rem;position:relative;color:#DCE5E0}
 .price li::before{content:"";position:absolute;left:0;top:.6em;width:.7rem;height:.7rem;border-radius:50%;background:radial-gradient(circle at 35% 30%, var(--cobre-3), var(--cobre) 60%, #7A4520)}
 
+.sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 /* close */
 .close{text-align:center}
 .close h2{margin-inline:auto}
@@ -215,7 +216,7 @@ p.big{font-size:clamp(1.15rem,2.4vw,1.35rem);line-height:1.6;max-width:40ch}
         <p class="big soft">Puedes vestir de blanco, muy sencillo. El collar es lo que dice quién eres. No es uno más en tu joyero: es el que eliges cuando quieres decir «así soy yo».</p>
       </div>
       <div class="crowns">
-        <blockquote>Los reyes y las reinas tenían sus joyas. No las poseían: les pertenecían.</blockquote>
+        <blockquote>Los reyes y las reinas no eran dueños de sus joyas. Les pertenecían a ellas.</blockquote>
         <p class="soft" style="margin-top:1rem">Un collar que habla de ti funciona igual. Te elige tanto como tú a él.</p>
       </div>
     </div>
@@ -257,9 +258,9 @@ p.big{font-size:clamp(1.15rem,2.4vw,1.35rem);line-height:1.6;max-width:40ch}
 
   <section class="years green" aria-labelledby="h-years">
     <div class="wrap">
-      <h2 id="h-years" class="sr" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Años después</h2>
-      <blockquote>Un collar así puede perder el color con los años. El recuerdo, no.</blockquote>
-      <p>Sigue diciendo quién te lo hizo, y quién eras tú cuando lo elegiste.</p>
+      <h2 id="h-years" class="sr">Años después</h2>
+      <blockquote>Los años pasan. El recuerdo se queda.</blockquote>
+      <p>Un collar así sigue diciendo quién te lo hizo, y quién eras tú cuando lo elegiste.</p>
     </div>
   </section>
 
@@ -281,7 +282,7 @@ p.big{font-size:clamp(1.15rem,2.4vw,1.35rem);line-height:1.6;max-width:40ch}
       <h2 id="h-precio">Primero el significado. Después, el precio.</h2>
       <p class="big soft">Nadie elige un collar así por lo que cuesta. Lo elige porque es suyo.</p>
       <div class="row"><span class="now">100&#8239;€</span><span class="was" aria-label="Precio habitual 500 euros">500&#8239;€</span></div>
-      <p class="soft">Edición fundacional: 5 plazas. + materiales, que elegimos juntos y conoces antes de empezar.</p>
+      <p class="soft">Edición fundacional: 5 plazas. 100&#8239;€ + materiales, que elegimos juntos y conoces antes de empezar. Te respondo yo misma, normalmente el mismo día.</p>
       <ul>
         <li>Unas horas contigo, en el lugar que elijas</li>
         <li>Tu historia, pintada en acuarela</li>
@@ -411,15 +412,15 @@ p.big{font-size:clamp(1.15rem,2.4vw,1.35rem);line-height:1.6;max-width:40ch}
   draw(document.getElementById('hero-neck'),'lapis',strand(['malaquita','cuarzorosa','tigre','turquesa','amatista']),true);
 
   // Builder
-  var sign=8, colors=[1];
+  var sign=8, colors=[1], touched=false;
   var signsEl=document.getElementById('signs'), colorsEl=document.getElementById('colors');
   SIGNS.forEach(function(s,i){
     var b=document.createElement('button'); b.type='button'; b.className='sign'; b.innerHTML='<b>'+s[0]+'</b><span>'+s[1]+'</span>';
-    b.addEventListener('click',function(){ sign=i; update(); }); signsEl.appendChild(b);
+    b.addEventListener('click',function(){ sign=i; touched=true; update(); }); signsEl.appendChild(b);
   });
   COLORS.forEach(function(c,i){
     var b=document.createElement('button'); b.type='button'; b.className='color'; b.innerHTML='<i style="background:'+grad(c[1][0])+'"></i>'+c[0];
-    b.addEventListener('click',function(){ var k=colors.indexOf(i); if(k>-1){ if(colors.length>1) colors.splice(k,1); } else { colors.push(i); if(colors.length>2) colors.shift(); } update(); });
+    b.addEventListener('click',function(){ touched=true; var k=colors.indexOf(i); if(k>-1){ if(colors.length>1) colors.splice(k,1); } else { colors.push(i); if(colors.length>2) colors.shift(); } update(); });
     colorsEl.appendChild(b);
   });
   function update(){
@@ -431,15 +432,16 @@ p.big{font-size:clamp(1.15rem,2.4vw,1.35rem);line-height:1.6;max-width:40ch}
     for(var r=0;r<3;r++) lists.forEach(function(l){ if(l[r] && pick.indexOf(l[r])<0) pick.push(l[r]); });
     pick=pick.slice(0,3);
     draw(document.getElementById('my-neck'),pend,strand(pick),false);
-    document.getElementById('res-title').textContent='El collar de '+s[0];
+    document.getElementById('res-title').textContent=(touched?'El collar de ':'Ejemplo: el collar de ')+s[0];
     var ul=document.getElementById('chosen'); ul.innerHTML='';
     [[pend,'Tu piedra de '+s[0]]].concat(pick.map(function(k){return [k,'Por tus colores'];})).forEach(function(x){
       var li=document.createElement('li'); li.innerHTML='<i style="background:'+grad(x[0])+'"></i><div><b>'+S[x[0]].n+'</b> · <span>'+x[1]+'</span><p>'+S[x[0]].m+'</p></div>'; ul.appendChild(li);
     });
     function and(a){ return a.length<2 ? a.join('') : a.slice(0,-1).join(', ')+' y '+a[a.length-1]; }
     var names=[pend].concat(pick).map(function(k){return S[k].n.toLowerCase();});
-    var txt='Hola Charlotte, vengo de la web de NuMA 💙 Soy '+s[0]+' y me atraen los colores '+and(colors.map(function(i){return '«'+COLORS[i][0].toLowerCase()+'»';}))+'. Me encantaría un collar con '+and(names)+'.';
-    document.getElementById('res-cta').href=wa(txt);
+    var txt='Hola Charlotte, vengo de la web de NuMA 💙 Soy '+s[0]+' y me atrae'+(colors.length>1?'n los colores ':' el color ')+and(colors.map(function(i){return '«'+COLORS[i][0].toLowerCase()+'»';}))+'. Me encantaría un collar con '+and(names)+'.';
+    document.getElementById('res-cta').href=wa(touched?txt:BASE);
+    [].forEach.call(document.querySelectorAll('a.wa'),function(a){ a.href=wa(touched?txt:BASE); });
   }
   update();
 
