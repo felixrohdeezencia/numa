@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="es" data-l="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NuMA · Una sola lámina, una sola joya</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0E2F3A">
+<link href="../shared/fonts.css" rel="stylesheet">
+<style>
+:root{
+  --bath:#0E2F3A; --bath-2:#0A242D; --bath-3:#174452; --sheet:#F2ECDF; --ink:#EAF1F0; --soft:#BFDCD6; --sized:#E8DFCC;
+  --serif:'Young Serif', Georgia, serif; --sans:'Manrope', 'Helvetica Neue', Arial, sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1);
+  color-scheme: dark;
+}
+html[data-l="es"] body [lang="en"], html[data-l="en"] body [lang="es"]{display:none !important}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scrollbar-color:#D3A04A var(--bath-2)}
+body{background-color:var(--bath);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:1.05rem;line-height:1.7;overflow-x:hidden;caret-color:#D3A04A}
+::selection{background:#D3A04A;color:var(--bath-2)}
+a{color:inherit;text-underline-offset:5px;text-decoration-thickness:1px}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+img{max-width:100%;height:auto}
+:focus-visible{outline:2px solid #F2D08A;outline-offset:3px;border-radius:8px}
+p{text-wrap:pretty} h1,h2,h3{text-wrap:balance}
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.wrap{width:min(1120px,100% - 2.5rem);margin-inline:auto}
+h2{font-family:var(--serif);font-weight:400;font-size:clamp(2rem,5.4vw,3.4rem);line-height:1.08}
+
+/* ---------- The bath ---------- */
+.bath{position:relative;height:100svh;min-height:600px;overflow:hidden;background:var(--bath)}
+.bath canvas{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:pan-y;cursor:crosshair}
+.bath::after{content:"";position:absolute;inset:0 0 auto;height:90px;pointer-events:none;background:linear-gradient(180deg,rgba(14,47,58,.85),rgba(14,47,58,0))}
+.bar{position:absolute;inset:0 0 auto;z-index:3;padding-top:env(safe-area-inset-top,0px)}
+.bar .wrap{display:flex;justify-content:space-between;align-items:center;height:64px}
+.mark{font-family:var(--serif);font-size:1.5rem;letter-spacing:.04em;text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
+.lang{display:flex;border:1px solid rgba(234,241,240,.3);border-radius:999px;padding:3px}
+.lang button{min-width:44px;min-height:38px;border-radius:999px;font-size:.85rem;font-weight:500;color:var(--soft)}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--bath-2)}
+.copy{position:absolute;z-index:2;left:0;right:0;top:calc(64px + env(safe-area-inset-top,0px) + 2vh);pointer-events:none}
+.copy h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.6rem,8vw,5.4rem);line-height:1.02;max-width:12ch}
+.copy p{max-width:38ch;margin-top:1rem;color:#D6E3E2;font-size:1.06rem}
+.tray{position:absolute;z-index:3;left:0;right:0;bottom:0;padding:1rem 0 calc(1rem + env(safe-area-inset-bottom,0px));background:var(--bath-2);border-top:1px solid rgba(234,241,240,.14)}
+.tray .wrap{display:grid;gap:.9rem}
+.tray .how{font-size:.92rem;color:#D6E3E2}
+.pigments{display:flex;flex-wrap:wrap;gap:.5rem}
+.pig{width:44px;height:44px;border-radius:52% 48% 46% 54% / 48% 55% 45% 52%;border:3px solid color-mix(in srgb, currentColor 70%, #000);transition:transform .2s var(--ease)}
+.pig[aria-pressed="true"]{outline:2px solid var(--ink);outline-offset:3px;transform:scale(1.08)}
+.acts{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:50px;padding:.85rem 1.4rem;border-radius:999px;font-weight:600;font-size:.98rem;text-decoration:none;transition:transform .2s var(--ease)}
+.btn:hover{transform:translateY(-1px)}
+.btn-sheet{background:var(--sheet);color:var(--bath-2)}
+.btn-line{border:1px solid rgba(234,241,240,.45);color:var(--ink)}
+.btn-gold{background:#D3A04A;color:#14262B}
+
+/* ---------- Lifted sheet ---------- */
+.lifted{padding:clamp(3.5rem,8vw,6rem) 0;background:var(--bath-2)}
+.lifted .wrap{display:grid;gap:2.4rem;align-items:start}
+.sheet{background:var(--sized);padding:14px;border-radius:2px;box-shadow:0 30px 50px -30px rgba(0,0,0,.8);transform:rotate(-1.2deg)}
+@media (prefers-reduced-motion: no-preference){ .sheet.landed{animation:lay .9s var(--ease)} @keyframes lay{from{transform:translateY(-28px) rotate(-5deg)}to{transform:rotate(-1.2deg)}} }
+.sheet img,.sheet canvas{width:100%;display:block;aspect-ratio:4/3;object-fit:cover;background:var(--bath-3)}
+.sheet figcaption{color:#3E4F52;font-size:.85rem;padding-top:.6rem}
+.reading h2{margin-bottom:1rem}
+.reading .empty{color:var(--soft);max-width:40ch}
+.stones{list-style:none;display:grid;gap:1rem;margin:1.4rem 0 1.8rem}
+.stones li{display:grid;grid-template-columns:56px 1fr;gap:1rem;align-items:center}
+.stones svg{width:56px;height:56px}
+.stones b{display:block;font-family:var(--serif);font-weight:400;font-size:1.3rem;line-height:1.1}
+.stones small{display:block;color:#F2D08A;font-size:.82rem}
+.stones p{color:var(--soft);font-size:.94rem}
+@media (min-width:900px){ .lifted .wrap{grid-template-columns:1fr 1fr;gap:4rem} }
+
+/* ---------- Sections on the bath ---------- */
+.sec{padding:clamp(3.5rem,8vw,6rem) 0}
+.sec .intro{color:var(--soft);max-width:46ch;margin-top:1rem}
+.one{display:grid;gap:2.4rem;align-items:center}
+.one figure{background:var(--sized);padding:14px 14px 10px;border-radius:2px;transform:rotate(1.4deg);max-width:440px;box-shadow:0 30px 50px -30px rgba(0,0,0,.8)}
+.one img{width:100%;display:block;background:#fff}
+.one figcaption{color:#3E4F52;font-size:.85rem;padding-top:.5rem}
+@media (min-width:900px){ .one{grid-template-columns:1.1fr .9fr;gap:4.5rem} }
+.drops{list-style:none;display:grid;gap:1.6rem;margin-top:2.4rem}
+.drops li{display:grid;grid-template-columns:52px 1fr;gap:1.1rem;align-items:start}
+.drops canvas{width:52px;height:52px;display:block}
+.drops h3{font-family:var(--serif);font-weight:400;font-size:1.35rem}
+.drops p{color:var(--soft);max-width:44ch}
+@media (min-width:900px){ .drops{grid-template-columns:1fr 1fr;gap:2.4rem 3rem} }
+.offer{text-align:center}
+.offer .amount{font-family:var(--serif);font-size:clamp(4.4rem,16vw,7rem);line-height:1;margin:1rem 0 .2rem;color:#F2D08A}
+.offer .amount s{font-size:1.6rem;color:var(--soft);margin-left:.3em;text-decoration-thickness:1px}
+.offer p{max-width:44ch;margin:.6rem auto 0;color:var(--soft)}
+.offer .btn{margin-top:1.8rem}
+.who .wrap{display:grid;gap:2.4rem;align-items:center}
+.who figure{max-width:360px}
+.who img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:180px 180px 4px 4px}
+.who figcaption{font-size:.8rem;color:var(--soft);margin-top:.4rem}
+.who blockquote{font-family:var(--serif);font-size:clamp(1.5rem,3.8vw,2.2rem);line-height:1.25;margin-bottom:1.2rem}
+.who p{color:var(--soft);max-width:46ch;margin-bottom:.9rem}
+@media (min-width:900px){ .who .wrap{grid-template-columns:.8fr 1.2fr;gap:4.5rem} }
+.faq .wrap{max-width:760px}
+.faq details{border-top:1px solid rgba(234,241,240,.18)}
+.faq details:last-of-type{border-bottom:1px solid rgba(234,241,240,.18)}
+.faq summary{list-style:none;cursor:pointer;min-height:58px;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";width:9px;height:9px;border-right:1.5px solid #F2D08A;border-bottom:1.5px solid #F2D08A;transform:rotate(45deg) translateY(-3px);transition:transform .25s}
+.faq details[open] summary::after{transform:rotate(225deg)}
+.faq p{color:var(--soft);padding-bottom:1.1rem}
+footer{padding:2.6rem 0 calc(2.6rem + env(safe-area-inset-bottom,0px));text-align:center;color:var(--soft);font-size:.9rem;border-top:1px solid rgba(234,241,240,.12)}
+footer a{display:inline-flex;align-items:center;gap:.5rem;min-height:44px;text-decoration:none}
+footer img{height:20px;width:auto}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
+</style>
+</head>
+<body>
+<main>
+  <section class="bath" aria-labelledby="h1">
+    <canvas id="bath" aria-label="Baño de color: toca para dejar caer una gota, arrastra para peinar / Colour bath: tap to drop, drag to comb" role="img"></canvas>
+    <header class="bar"><div class="wrap">
+      <a class="mark" href="#">NuMA</a>
+      <div class="lang" role="group" aria-label="Idioma / Language"><button type="button" data-lang-btn="es" aria-pressed="true">ES</button><button type="button" data-lang-btn="en" aria-pressed="false">EN</button></div>
+    </div></header>
+    <div class="copy"><div class="wrap">
+      <h1 id="h1"><span lang="es">Una sola lámina. Una sola joya.</span><span lang="en">One single print. One single jewel.</span></h1>
+      <p><span lang="es">Como el papel marmolado, cada collar de Charlotte existe una sola vez. Deja caer tus colores y mira lo que forman.</span><span lang="en">Like marbled paper, every necklace by Charlotte exists only once. Drop in your colours and see what they become.</span></p>
+    </div></div>
+    <div class="tray"><div class="wrap">
+      <p class="how" id="how"><span lang="es">Elige un color y toca el agua. Arrastra para peinar.</span><span lang="en">Pick a colour and touch the water. Drag to comb.</span></p>
+      <div class="pigments" id="pigments" role="group" aria-label="Colores / Colours"></div>
+      <div class="acts">
+        <button class="btn btn-sheet" type="button" id="lift"><span lang="es">Levantar mi lámina</span><span lang="en">Lift my print</span></button>
+        <button class="btn btn-line" type="button" id="comb"><span lang="es">Peinar</span><span lang="en">Comb</span></button>
+        <a class="btn btn-line" data-wa href="#"><span lang="es">Escribir a Charlotte</span><span lang="en">Write to Charlotte</span></a>
+      </div>
+    </div></div>
+  </section>
+
+  <section class="lifted" id="lamina" aria-labelledby="h-lam">
+    <div class="wrap">
+      <figure class="sheet"><canvas id="print" width="800" height="600" aria-label="Tu lámina / Your print"></canvas><figcaption><span lang="es">Tu lámina: existe una sola vez.</span><span lang="en">Your print: it exists only once.</span></figcaption></figure>
+      <div class="reading">
+        <h2 id="h-lam"><span lang="es">Las piedras de tu lámina</span><span lang="en">The stones in your print</span></h2>
+        <p class="empty" id="empty"><span lang="es">Levanta tu lámina y te mostraré qué piedras viven en tus colores.</span><span lang="en">Lift your print and I'll show you which stones live in your colours.</span></p>
+        <ul class="stones" id="stones" aria-live="polite"></ul>
+        <a class="btn btn-gold" data-wa href="#" id="send"><span lang="es">Enviar mis colores a Charlotte</span><span lang="en">Send my colours to Charlotte</span></a>
+        <p style="color:var(--soft);font-size:.9rem;margin-top:.9rem"><span lang="es">Los significados vienen de la tradición, no son promesas. Lapislázuli y nácar: fotos reales del collar de Charlotte. Las demás piedras son muestras de color hasta tener sus fotos.</span><span lang="en">The meanings come from tradition, not promises. Lapis lazuli and mother-of-pearl: real photos from Charlotte&#39;s necklace. The other stones are colour samples until their photos arrive.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="h-one">
+    <div class="wrap one">
+      <div>
+        <h2 id="h-one"><span lang="es">No es una joya. Es tu historia.</span><span lang="en">It isn't jewellery. It's your story.</span></h2>
+        <p class="intro"><span lang="es">Charlotte escucha tu historia, también lo que no dices, la pinta en acuarela y la convierte en un collar hecho a mano en Tenerife, con piedra natural y metal.</span><span lang="en">Charlotte listens to your story, including what you leave unsaid, paints it in watercolour and turns it into a necklace handmade in Tenerife, with natural stone and metal.</span></p>
+      </div>
+      <figure><img src="../assets/necklace.webp" alt="Collar de Charlotte con placas de lapislázuli, nácar y cuentas claras" width="900" height="1152" loading="lazy"><figcaption><span lang="es">Una pieza de Charlotte.</span><span lang="en">A piece by Charlotte.</span></figcaption></figure>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="h-st" style="background:var(--bath-2)">
+    <div class="wrap">
+      <h2 id="h-st"><span lang="es">Cuatro gotas</span><span lang="en">Four drops</span></h2>
+      <ol class="drops">
+        <li><canvas class="mini" width="104" height="104" data-c="#5D7FD9" aria-hidden="true"></canvas><div><h3><span lang="es">Tu historia</span><span lang="en">Your story</span></h3><p><span lang="es">En tu casa, tu hotel o un lugar que te guste. Escucho con calma.</span><span lang="en">At your home, your hotel or a place you love. I listen calmly.</span></p></div></li>
+        <li><canvas class="mini" width="104" height="104" data-c="#A687D9" aria-hidden="true"></canvas><div><h3><span lang="es">Tus piedras</span><span lang="en">Your stones</span></h3><p><span lang="es">Elegimos juntos piedras y metal por lo que significan para ti. Conoces el precio antes de empezar.</span><span lang="en">Together we choose stones and metal for what they mean to you. You know the price before we begin.</span></p></div></li>
+        <li><canvas class="mini" width="104" height="104" data-c="#D3A04A" aria-hidden="true"></canvas><div><h3><span lang="es">Tu acuarela</span><span lang="en">Your watercolour</span></h3><p><span lang="es">Pinto tu historia: el diseño de tu pieza nace en acuarela.</span><span lang="en">I paint your story: the design of your piece is born in watercolour.</span></p></div></li>
+        <li><canvas class="mini" width="104" height="104" data-c="#F2ECDF" aria-hidden="true"></canvas><div><h3><span lang="es">Tu collar</span><span lang="en">Your necklace</span></h3><p><span lang="es">Lo hago a mano y te cuento cómo tu historia tomó forma.</span><span lang="en">I make it by hand and tell you how your story took shape.</span></p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="sec offer" aria-labelledby="h-of">
+    <div class="wrap">
+      <h2 id="h-of"><span lang="es">Primera edición</span><span lang="en">First edition</span></h2>
+      <p class="amount">100&#8239;€<s><span lang="es">500 €</span><span lang="en">€500</span></s></p>
+      <p><span lang="es">+ materiales, que eliges conmigo y conoces antes de empezar.</span><span lang="en">+ materials, chosen with me and known before we begin.</span> <b data-plazas></b>.</p>
+      <a class="btn btn-gold" data-wa href="#"><span lang="es">Quiero una de las plazas</span><span lang="en">I'd like one of the places</span></a>
+    </div>
+  </section>
+
+  <section class="sec who" aria-labelledby="h-who" style="background:var(--bath-2)">
+    <div class="wrap">
+      <figure><img src="../assets/portrait.webp" alt="Retrato provisional generado por IA, no es Charlotte / AI-generated placeholder, not Charlotte" width="800" height="1000" loading="lazy"><figcaption><span lang="es">Retrato provisional</span><span lang="en">Placeholder portrait</span></figcaption></figure>
+      <div>
+        <h2 id="h-who" class="vh">Charlotte</h2>
+        <blockquote><span lang="es">«Soy Charlotte. Me encanta ir profundamente con las personas y adentrarnos en quiénes somos.»</span><span lang="en">“I'm Charlotte. I love going deep with people and finding out who we really are.”</span></blockquote>
+        <p><span lang="es">Joyera de formación, con Bellas Artes y diploma de joyería, y artista. Llevo años haciendo collares con piedra natural y metal.</span><span lang="en">Trained jeweller, with Fine Arts and a jewellery diploma, and an artist. I have been making necklaces with natural stone and metal for years.</span></p>
+        <p><span lang="es">NuMA viene de Nuria, mi abuela, y Marisa, mi madre. Hablo español, français y English.</span><span lang="en">NuMA comes from Nuria, my grandmother, and Marisa, my mother. I speak Spanish, French and English.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec faq" aria-labelledby="h-faq">
+    <div class="wrap">
+      <h2 id="h-faq" style="margin-bottom:1.4rem"><span lang="es">Preguntas</span><span lang="en">Questions</span></h2>
+      <details><summary><span lang="es">¿Dónde nos vemos y cuánto dura?</span><span lang="en">Where do we meet, and how long?</span></summary><p><span lang="es">En tu casa, tu hotel o un lugar que te guste, en Tenerife. Unas horas, sin prisa.</span><span lang="en">At your home, your hotel or a place you love, in Tenerife. A few unhurried hours.</span></p></details>
+      <details><summary><span lang="es">¿Mi collar tendrá los colores de mi lámina?</span><span lang="en">Will my necklace have the colours of my print?</span></summary><p><span lang="es">Tu lámina es un punto de partida para hablar. Las piedras las elegimos juntos por tu historia.</span><span lang="en">Your print is a starting point for our conversation. We choose the stones together, for your story.</span></p></details>
+      <details><summary><span lang="es">¿Puedo regalarlo?</span><span lang="en">Can I give it as a gift?</span></summary><p><span lang="es">Sí. Elegimos las piedras pensando en esa persona.</span><span lang="en">Yes. We choose the stones with that person in mind.</span></p></details>
+    </div>
+  </section>
+</main>
+<footer>NuMA · Tenerife · WhatsApp +34 642 52 73 97<br><a href="https://felixrohde.com/" target="_blank" rel="noopener"><span lang="es">Identidad y web por</span><span lang="en">Identity and web by</span> <img src="../assets/ezencia/ezencia-schriftzug-hell.webp" alt="Ezencia" width="90" height="20" loading="lazy"></a></footer>
+
+<script src="../shared/numa.js"></script>
+<script>
+(function(){
+  /* Pigmente = Steinfarben */
+  var PIG=[
+    {k:'lapis',c:'#2C4FBF'},{k:'tigre',c:'#C98A2B'},{k:'amatista',c:'#8A63C6'},{k:'cornalina',c:'#D3561F'},
+    {k:'nacar',c:'#F2EEE6'},{k:'malaquita',c:'#1E8A60'},{k:'turquesa',c:'#3FB0A9'},{k:'cuarzorosa',c:'#E9A9B8'}
+  ];
+  function C(k){ for(var i=0;i<PIG.length;i++) if(PIG[i].k===k) return PIG[i].c; }
+  function dark(hex,f){ var n=parseInt(hex.slice(1),16), r=(n>>16)&255, g=(n>>8)&255, b=n&255; return 'rgb('+Math.round(r*f)+','+Math.round(g*f)+','+Math.round(b*f)+')'; }
+  var BATH='#0E2F3A', PAPER='#EFE6D3';
+  var cv=document.getElementById('bath'), ctx=cv.getContext('2d'), W=0,H=0, DPR=Math.min(2,window.devicePixelRatio||1);
+  var drops=[], cur=0, used={}, anim=null;
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Körnung: einmal erzeugtes Rauschen */
+  var grain=document.createElement('canvas'); grain.width=grain.height=160;
+  (function(){ var g=grain.getContext('2d'), im=g.createImageData(160,160); for(var i=0;i<im.data.length;i+=4){ var v=Math.random()*255; im.data[i]=im.data[i+1]=im.data[i+2]=v; im.data[i+3]=255; } g.putImageData(im,0,0); })();
+
+  function resize(){
+    var r=cv.getBoundingClientRect(), oW=W, oH=H; W=r.width; H=r.height; cv.width=Math.round(W*DPR); cv.height=Math.round(H*DPR);
+    if(oW && oH){ var sx=W/oW, sy=H/oH; drops.forEach(function(d){ d.p.forEach(function(p){ p[0]*=sx; p[1]*=sy; }); }); }
+    paint();
+  }
+  /* Mathematisches Marmorieren (Jaffer/Lu): jede neue Gota verdrängt alles radial */
+  function drop(x,y,r,col,animate){
+    var r2=r*r;
+    drops.forEach(function(d){ if(animate) d.q=d.p.map(function(p){return [p[0],p[1]];}); d.p.forEach(function(p){ var dx=p[0]-x, dy=p[1]-y, L2=dx*dx+dy*dy; if(L2<1e-6) L2=1e-6; var f=Math.sqrt(1+r2/L2); p[0]=x+dx*f; p[1]=y+dy*f; }); });
+    var n=160, pts=[]; for(var i=0;i<n;i++){ var a=i/n*Math.PI*2; pts.push([x+Math.cos(a)*r, y+Math.sin(a)*r]); }
+    var nd={c:col,p:pts}; if(animate) nd.q=pts.map(function(p){ return [x+(p[0]-x)*.15, y+(p[1]-y)*.15]; });
+    drops.push(nd); if(drops.length>90) drops.shift();
+    if(animate) run(); else paint();
+  }
+  function tine(x0,y0,x1,y1,strength){
+    var ux=x1-x0, uy=y1-y0, len=Math.hypot(ux,uy); if(len<1) return; ux/=len; uy/=len;
+    var lambda=22, amt=len*(strength||1.1);
+    drops.forEach(function(d){
+      d.p.forEach(function(p){ var px=p[0]-x0, py=p[1]-y0, dist=Math.abs(px*uy-py*ux); var s=amt*lambda/(dist+lambda); p[0]+=ux*s; p[1]+=uy*s; });
+      refine(d);
+    });
+  }
+  function refine(d){ if(d.p.length>700) return; var out=[]; for(var i=0;i<d.p.length;i++){ var a=d.p[i], b=d.p[(i+1)%d.p.length]; out.push(a); if(Math.hypot(b[0]-a[0],b[1]-a[1])>10) out.push([(a[0]+b[0])/2,(a[1]+b[1])/2]); } d.p=out; d.q=null; }
+  /* 500 ms ease-out: Pigment schiebt sich sichtbar nach außen */
+  function run(){
+    if(reduce){ drops.forEach(function(d){ d.q=null; }); paint(); return; }
+    var t0=performance.now(), done=false;
+    anim={t0:t0};
+    function step(now){ if(done) return; var t=Math.min(1,(now-t0)/520), e=1-Math.pow(1-t,3); paint(e); if(t<1) requestAnimationFrame(step); else finish(); }
+    function finish(){ if(done) return; done=true; anim=null; drops.forEach(function(d){ d.q=null; }); paint(); }
+    requestAnimationFrame(step); setTimeout(finish,900);
+  }
+  function path(c,d,e,tf){
+    c.beginPath();
+    for(var i=0;i<d.p.length;i++){ var p=d.p[i], x=p[0], y=p[1]; if(d.q && e<1 && d.q[i]){ x=d.q[i][0]+(x-d.q[i][0])*e; y=d.q[i][1]+(y-d.q[i][1])*e; } if(tf){ x=x*tf.s+tf.x; y=y*tf.s+tf.y; } if(i) c.lineTo(x,y); else c.moveTo(x,y); }
+    c.closePath();
+  }
+  function render(c,w,h,ground,tf,e){
+    c.fillStyle=ground; c.fillRect(0,0,w,h);
+    drops.forEach(function(d){
+      path(c,d,e==null?1:e,tf);
+      c.fillStyle=d.c; c.fill();
+      c.lineWidth=(tf?tf.s:1)*1.8; c.strokeStyle=dark(d.c,.72); c.globalAlpha=.6; c.stroke(); c.globalAlpha=1;
+    });
+    c.save(); c.globalCompositeOperation='soft-light'; c.globalAlpha=.28; c.fillStyle=c.createPattern(grain,'repeat'); c.fillRect(0,0,w,h); c.restore();
+  }
+  function paint(e){ ctx.setTransform(DPR,0,0,DPR,0,0); render(ctx,W,H,BATH,null,e); }
+
+  /* Startbild: Ringe aus Gota-in-Gota, frei von Text und Schale */
+  function rings(fx,fy,list,base){ list.forEach(function(it){ drop(fx*W, fy*H, it[1]*base, C(it[0]), false); }); }
+  function seed(){
+    drops=[]; used={};
+    var m=W<700, base=m?W:Math.min(W,H);
+    if(m){
+      rings(.52,.53,[['lapis',.17],['nacar',.12],['tigre',.075],['lapis',.04]],base);
+      rings(.92,.47,[['amatista',.1],['nacar',.06],['amatista',.03]],base);
+      rings(.1,.58,[['turquesa',.08],['nacar',.05]],base);
+      tine(W*.02,H*.53,W*.98,H*.55,.6);
+    } else {
+      rings(.72,.42,[['lapis',.15],['nacar',.105],['tigre',.07],['lapis',.035]],base);
+      rings(.9,.68,[['amatista',.1],['nacar',.065],['amatista',.03]],base);
+      rings(.56,.64,[['turquesa',.075],['nacar',.045],['turquesa',.02]],base);
+      rings(.9,.2,[['cornalina',.07],['tigre',.04]],base);
+      tine(W*.5,H*.52,W*.99,H*.5,.7); tine(W*.8,H*.1,W*.82,H*.8,.35);
+    }
+    paint();
+  }
+
+  var pigs=document.getElementById('pigments');
+  PIG.forEach(function(p,i){ var b=document.createElement('button'); b.type='button'; b.className='pig'; b.style.background=p.c; b.style.color=p.c; b.setAttribute('aria-pressed',i===0?'true':'false'); b.dataset.k=p.k; b.addEventListener('click',function(){ cur=i; [].forEach.call(pigs.children,function(x,j){ x.setAttribute('aria-pressed',j===i?'true':'false'); }); }); pigs.appendChild(b); });
+  function labelPigs(){ var l=NUMA.lang(); [].forEach.call(pigs.children,function(b){ b.setAttribute('aria-label',NUMA.S[b.dataset.k][l]); }); }
+
+  var down=null, moved=false;
+  cv.addEventListener('pointerdown',function(e){ var r=cv.getBoundingClientRect(); down=[e.clientX-r.left,e.clientY-r.top]; moved=false; });
+  cv.addEventListener('pointermove',function(e){ if(!down) return; var r=cv.getBoundingClientRect(), x=e.clientX-r.left, y=e.clientY-r.top; if(Math.hypot(x-down[0],y-down[1])>6){ moved=true; tine(down[0],down[1],x,y); down=[x,y]; requestAnimationFrame(function(){ paint(); }); } });
+  window.addEventListener('pointerup',function(){ if(down && !moved){ var p=PIG[cur]; drop(down[0],down[1],Math.min(W,H)*(.05+Math.random()*.05),p.c,true); used[p.k]=(used[p.k]||0)+1; } down=null; });
+  document.getElementById('comb').addEventListener('click',function(){ for(var i=1;i<6;i++){ var y=H*(.18+i*.12); tine(W*.03,y,W*.97,y+(i%2?16:-16),.8); } paint(); });
+
+  /* Abziehen auf geleimtes Papier: das Muster wird in den Bogen eingepasst */
+  var printed=false;
+  document.getElementById('lift').addEventListener('click',function(){
+    var pc=document.getElementById('print'), c2=pc.getContext('2d');
+    var minx=1e9,miny=1e9,maxx=-1e9,maxy=-1e9; drops.forEach(function(d){ d.p.forEach(function(p){ if(p[0]<minx)minx=p[0]; if(p[1]<miny)miny=p[1]; if(p[0]>maxx)maxx=p[0]; if(p[1]>maxy)maxy=p[1]; }); });
+    minx=Math.max(minx,0); miny=Math.max(miny,0); maxx=Math.min(maxx,W); maxy=Math.min(maxy,H);
+    var bw=Math.max(1,maxx-minx), bh=Math.max(1,maxy-miny), mg=.06, s=Math.min(pc.width*(1-2*mg)/bw, pc.height*(1-2*mg)/bh);
+    var tf={s:s, x:(pc.width-bw*s)/2-minx*s, y:(pc.height-bh*s)/2-miny*s};
+    render(c2,pc.width,pc.height,PAPER,tf,1);
+    printed=true; reading();
+    var sheet=document.querySelector('.sheet'); sheet.classList.remove('landed'); void sheet.offsetWidth; sheet.classList.add('landed');
+    document.getElementById('lamina').scrollIntoView({behavior: reduce?'auto':'smooth'});
+  });
+
+  function reading(){
+    var l=NUMA.lang(), ul=document.getElementById('stones'), empty=document.getElementById('empty');
+    var keys=Object.keys(used).sort(function(a,b){ return used[b]-used[a]; }).slice(0,3);
+    if(printed && !keys.length) keys=['lapis','nacar','tigre'];
+    ul.innerHTML='';
+    if(!printed){ empty.hidden=false; NUMA.setMessage(null); return; }
+    empty.hidden=true;
+    keys.forEach(function(k){ var d=NUMA.S[k], li=document.createElement('li'); li.innerHTML=NUMA.stone(k)+'<div><b>'+d[l]+'</b><small>'+d.o[l]+'</small><p>'+d.m[l]+'</p></div>'; ul.appendChild(li); });
+    function and(a,lg){ return a.length<2?a.join(''):a.slice(0,-1).join(', ')+(lg==='es'?' y ':' and ')+a[a.length-1]; }
+    NUMA.setMessage({
+      es:'Hola Charlotte, vengo de la web de NuMA. Mi lámina tiene '+and(keys.map(function(k){return NUMA.S[k].es.toLowerCase();}),'es')+'. ¿Hablamos de mi historia?',
+      en:'Hi Charlotte, I found NuMA online. My print has '+and(keys.map(function(k){return NUMA.S[k].en.toLowerCase();}),'en')+'. Could we talk about my story?'
+    });
+  }
+
+  /* Kleine Ringe für „Cuatro gotas“, mit demselben Verfahren */
+  [].forEach.call(document.querySelectorAll('canvas.mini'),function(m){
+    var mc=m.getContext('2d'), col=m.getAttribute('data-c'), save=drops; drops=[];
+    [[.46,col],[.32,BATH],[.22,col],[.1,BATH]].forEach(function(it){ var r=it[0]*104, x=52, y=52; drops.forEach(function(d){ d.p.forEach(function(p){ var dx=p[0]-x, dy=p[1]-y, L2=dx*dx+dy*dy||1e-6, f=Math.sqrt(1+r*r/L2); p[0]=x+dx*f; p[1]=y+dy*f; }); }); var pts=[]; for(var i=0;i<90;i++){ var a=i/90*Math.PI*2; pts.push([x+Math.cos(a)*r,y+Math.sin(a)*r]); } drops.push({c:it[1],p:pts}); });
+    drops.forEach(function(d){ d.p.forEach(function(p,i){ p[0]+=Math.sin(i*.7)*1.2; }); });
+    mc.beginPath(); mc.arc(52,52,50,0,Math.PI*2); mc.clip(); render(mc,104,104,BATH,null,1); drops=save;
+  });
+
+  document.addEventListener('numa:lang',function(){ labelPigs(); reading(); });
+  NUMA.init(); labelPigs();
+  window.addEventListener('resize',resize);
+  resize(); seed();
+})();
+</script>
+</body>
+</html>

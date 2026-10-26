@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="es" data-l="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NuMA · El cuaderno de Charlotte</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#EFEAE0">
+<link href="../shared/fonts.css" rel="stylesheet">
+<style>
+:root{
+  --paper:#EFEAE0; --paper-2:#E6E0D3; --gutter:#CFC6B4; --graphite:#3D3C44; --graphite-2:#5C5A63;
+  --ultra:#2742A8; --ultra-2:#5D78D6; --siena:#C9762E; --siena-ink:#8A4A14; --siena-2:#E8A55E; --violet:#7D62B3; --violet-2:#B5A1DD;
+  --disp:'Alegreya', Georgia, serif; --sans:'Alegreya Sans', 'Helvetica Neue', Arial, sans-serif; --pen:'Nanum Pen Script', 'Bradley Hand', cursive;
+  --ease:cubic-bezier(.16,1,.3,1);
+  color-scheme: light;
+}
+html[data-l="es"] body [lang="en"], html[data-l="en"] body [lang="es"]{display:none !important}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scrollbar-color:var(--ultra) var(--paper-2)}
+body{background-color:var(--paper-2);color:var(--graphite);font-family:var(--sans);font-weight:300;font-size:1.1rem;line-height:1.65;overflow-x:hidden;caret-color:var(--ultra)}
+::selection{background:var(--ultra-2);color:#fff}
+a{color:inherit;text-underline-offset:5px;text-decoration-thickness:1px}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+img{max-width:100%;height:auto}
+:focus-visible{outline:2px solid var(--ultra);outline-offset:3px;border-radius:4px}
+p{text-wrap:pretty} h1,h2,h3{text-wrap:balance}
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- Spread: two pages on one gutter ---------- */
+.spread{position:relative;width:min(1240px,100%);margin:0 auto;display:grid;background:var(--paper);box-shadow:0 1px 0 var(--gutter)}
+.spread + .spread{margin-top:0}
+.page{position:relative;padding:clamp(1.6rem,5vw,4rem) clamp(1.25rem,5vw,4rem);min-width:0;overflow:hidden;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .32  0 0 0 0 .3  0 0 0 0 .26  0 0 0 .08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)'/%3E%3C/svg%3E")}
+.spread .page + .page{border-top:1px dashed var(--gutter)}
+@media (min-width:900px){
+  .spread{grid-template-columns:1fr 1fr}
+  .spread .page + .page{border-top:0}
+  .spread::after{content:"";position:absolute;top:0;bottom:0;left:50%;width:40px;margin-left:-20px;pointer-events:none;background:linear-gradient(90deg,rgba(0,0,0,0),rgba(60,50,30,.10) 45%,rgba(60,50,30,.16) 50%,rgba(60,50,30,.10) 55%,rgba(0,0,0,0))}
+}
+
+/* watercolour wash: authored SVG with displaced edges */
+.wash{position:absolute;pointer-events:none;mix-blend-mode:multiply}
+.wash img{width:100%;height:100%;object-fit:contain;display:block}
+.hero-wash{right:-22%;bottom:-14%;width:66%;height:58%}
+@media (max-width:899px){ .hero-wash{right:-34%;top:-8%;bottom:auto;width:66%;height:26%} }
+
+/* type */
+h1{font-family:var(--disp);font-weight:500;font-size:clamp(3rem,9vw,6rem);line-height:.98;letter-spacing:-.01em;color:#1B2350;position:relative}
+h1 .b{display:block;font-style:italic;font-weight:400;color:var(--ultra)}
+h2{font-family:var(--disp);font-weight:500;font-size:clamp(2.1rem,5vw,3.3rem);line-height:1.05;color:#1B2350;position:relative}
+.note{font-family:var(--pen);font-size:1.6rem;line-height:1.05;color:var(--graphite-2)}
+.lead{position:relative;max-width:34ch;font-size:1.18rem;margin-top:1.4rem;color:var(--graphite)}
+
+/* top line */
+.top{display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2;margin-bottom:clamp(2rem,6vw,4rem)}
+.mark{font-family:var(--disp);font-size:1.7rem;letter-spacing:.04em;text-decoration:none;min-height:44px;display:inline-flex;align-items:center;color:#1B2350}
+.mark i{color:var(--siena);font-style:italic}
+.lang{display:flex;gap:.2rem;font-family:var(--pen);font-size:1.6rem}
+.lang button{min-width:44px;min-height:44px;color:var(--graphite-2)}
+.lang button[aria-pressed="true"]{color:var(--ultra);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:6px}
+
+/* pencilled action box */
+.box{position:relative;display:inline-flex;align-items:center;gap:.8rem;margin-top:2rem;min-height:56px;padding:.9rem 1.7rem;text-decoration:none;color:var(--ultra);font-weight:500;font-size:1.12rem;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 60' preserveAspectRatio='none'%3E%3Cpath d='M4 6 C 80 2, 200 5, 296 3 M297 2 C 299 20, 296 40, 298 57 M299 56 C 200 59, 90 55, 3 58 M5 59 C 2 40, 5 22, 3 4' fill='none' stroke='%233D3C44' stroke-width='1.6' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E") center/100% 100% no-repeat;transition:transform .25s var(--ease)}
+.box:hover{transform:rotate(-.6deg);color:#1B2350}
+.box svg{width:20px;height:20px}
+.box + .note{display:block;margin-top:.8rem}
+.places{font-family:var(--pen);font-size:1.5rem;color:var(--siena-ink);display:block;margin-top:.4rem}
+
+/* necklace with leader lines: one coordinate system */
+.specimen{position:relative;max-width:640px;margin:0 auto}
+.specimen svg{width:100%;height:auto;display:block;overflow:visible}
+.specimen image{filter:drop-shadow(0 18px 20px rgba(40,30,20,.25))}
+.specimen .lines path{fill:none;stroke:var(--graphite-2);stroke-width:1.4;stroke-linecap:round}
+.specimen .notes text{font-family:var(--pen);font-size:25px;fill:var(--graphite)}
+
+/* process list */
+.steps{list-style:none;display:grid;gap:1.6rem;margin-top:2rem;position:relative}
+.steps li{display:grid;grid-template-columns:2.6rem 1fr;gap:.2rem .9rem}
+.steps .n{font-family:var(--pen);font-size:2.2rem;line-height:.8;color:var(--siena-ink)}
+.steps h3{font-family:var(--disp);font-weight:500;font-size:1.35rem;color:#1B2350}
+.steps p{color:var(--graphite-2);max-width:40ch}
+.taped{position:relative;margin:1rem auto 0;max-width:520px;transform:rotate(1.2deg);background:#fff;padding:12px 12px 8px;box-shadow:0 14px 26px -18px rgba(40,30,20,.5)}
+.taped img{width:100%;display:block}
+.taped figcaption{font-family:var(--pen);font-size:1.3rem;color:var(--graphite-2);padding-top:.4rem}
+
+/* stones as painted swatches with origin tickets */
+.swatches{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.6rem 1.2rem;margin-top:2rem;position:relative}
+.swatches li{display:grid;gap:.3rem}
+.swatches svg{width:64px;height:64px}
+.swatches b{font-family:var(--disp);font-weight:500;font-size:1.2rem;color:#1B2350}
+.swatches .ticket{justify-self:start;font-size:.78rem;letter-spacing:.02em;color:var(--graphite);border:1px solid var(--gutter);border-radius:2px;padding:.05rem .45rem;background:#F7F3EA}
+.swatches p{font-size:.95rem;color:var(--graphite-2)}
+.honest{font-family:var(--pen);font-size:1.4rem;color:var(--graphite-2);margin-top:1.6rem;position:relative;max-width:30ch}
+@media (min-width:600px){ .swatches{grid-template-columns:repeat(3,minmax(0,1fr))} }
+
+/* Charlotte */
+.polaroid{position:relative;max-width:340px;margin:0 auto;background:#fff;padding:12px 12px 14px;transform:rotate(-2deg);box-shadow:0 18px 30px -20px rgba(40,30,20,.55)}
+.polaroid img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
+.polaroid figcaption{font-family:var(--pen);font-size:1.35rem;color:var(--graphite-2);padding-top:.5rem}
+.quote{font-family:var(--disp);font-style:italic;font-size:clamp(1.6rem,3.6vw,2.2rem);line-height:1.25;color:var(--ultra);position:relative;max-width:22ch}
+.bio p{position:relative;margin-top:1rem;max-width:42ch}
+
+/* price note */
+.price{position:relative;font-family:var(--disp);font-size:clamp(4.5rem,14vw,7rem);line-height:.9;color:#1B2350;margin-top:1rem}
+.price s{font-size:1.8rem;color:var(--graphite-2);text-decoration-thickness:1px;margin-left:.3em}
+
+/* questions */
+.qa{position:relative;margin-top:1.6rem}
+.qa details{border-top:1px dashed var(--gutter)}
+.qa details:last-child{border-bottom:1px dashed var(--gutter)}
+.qa summary{list-style:none;cursor:pointer;min-height:56px;display:flex;align-items:center;justify-content:space-between;gap:1rem;font-weight:400}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary::after{content:"+";font-family:var(--pen);font-size:1.9rem;color:var(--siena-ink);line-height:1}
+.qa details[open] summary::after{content:"−"}
+.qa p{color:var(--graphite-2);padding-bottom:1rem;max-width:56ch}
+
+footer{width:min(1240px,100%);margin:0 auto;padding:2rem 1.25rem calc(2rem + env(safe-area-inset-bottom,0px));text-align:center;color:var(--graphite-2);font-size:.95rem}
+footer a{display:inline-flex;align-items:center;gap:.5rem;min-height:44px;text-decoration:none}
+footer img{height:20px;width:auto;filter:invert(1) brightness(.35)}
+
+/* one authored moment: the first wash blooms, pencil lines draw */
+@media (prefers-reduced-motion: no-preference){
+  .bloom{animation:bloom 2.4s var(--ease)}
+  @keyframes bloom{from{transform:scale(.93)}to{transform:none}}
+}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
+</style>
+</head>
+<body>
+
+
+<main>
+  <!-- Spread 1 -->
+  <section class="spread" aria-labelledby="h1">
+    <div class="page">
+      <div class="wash bloom hero-wash" style="opacity:.62" aria-hidden="true"><img src="../assets/wash/ultramar-a.webp" alt="" loading="lazy"></div>
+      <div class="top">
+        <a class="mark" href="#">N<i>u</i>MA</a>
+        <div class="lang" role="group" aria-label="Idioma / Language"><button type="button" data-lang-btn="es" aria-pressed="true">es</button><button type="button" data-lang-btn="en" aria-pressed="false">en</button></div>
+      </div>
+      <h1 id="h1"><span lang="es">No es una joya.<span class="b">Es tu historia.</span></span><span lang="en">It isn't jewellery.<span class="b">It's your story.</span></span></h1>
+      <p class="lead"><span lang="es">Charlotte escucha tu historia, también lo que no dices, la pinta en acuarela y lo convierte en un collar único, hecho a mano en Tenerife.</span><span lang="en">Charlotte listens to your story, including what you leave unsaid, paints it in watercolour and turns it into a one-of-a-kind necklace, handmade in Tenerife.</span></p>
+      <a class="box" data-wa href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 20l1.2-3.6A8 8 0 1 1 8 19.2Z"/></svg><span lang="es">Escribir a Charlotte</span><span lang="en">Write to Charlotte</span></a>
+    </div>
+    <div class="page">
+      <div class="wash" style="right:-20%;bottom:-6%;width:90%;height:60%" aria-hidden="true"><img src="../assets/wash/siena-b.webp" alt="" loading="lazy"></div>
+      <figure class="specimen">
+        <svg viewBox="0 0 640 500" role="img" aria-label="Collar de Charlotte con notas a lápiz / Charlotte's necklace with pencil notes">
+          <image href="../assets/necklace.webp" x="150" y="36" width="340" height="435" transform="rotate(-5 320 250)"/>
+          <g class="lines"><path d="M432 30 C 400 40, 360 50, 330 70"/><path d="M118 150 C 160 156, 190 168, 222 182"/><path d="M560 318 C 530 314, 500 306, 466 300"/><path d="M120 452 C 190 446, 250 430, 300 410"/></g>
+          <g class="notes">
+            <text x="436" y="34" lang="es">tu historia empieza aquí</text><text x="436" y="34" lang="en">your story starts here</text>
+            <text x="4" y="140" lang="es">cuentas claras,</text><text x="4" y="164" lang="es">como agua</text>
+            <text x="4" y="140" lang="en">pale beads,</text><text x="4" y="164" lang="en">like water</text>
+            <text x="636" y="312" text-anchor="end" lang="es">lapislázuli:</text><text x="636" y="336" text-anchor="end" lang="es">verdad</text>
+            <text x="636" y="312" text-anchor="end" lang="en">lapis:</text><text x="636" y="336" text-anchor="end" lang="en">truth</text>
+            <text x="4" y="462" lang="es">nácar, del mar</text><text x="4" y="462" lang="en">mother-of-pearl</text>
+          </g>
+        </svg>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Spread 2: process -->
+  <section class="spread" aria-labelledby="h-como">
+    <div class="page">
+      <div class="wash" style="left:-10%;top:-8%;width:70%;height:40%" aria-hidden="true"><img src="../assets/wash/siena-a.webp" alt="" loading="lazy"></div>
+      <h2 id="h-como"><span lang="es">Cómo nace tu pieza</span><span lang="en">How your piece is born</span></h2>
+      <ol class="steps">
+        <li><span class="n" aria-hidden="true">1</span><div><h3><span lang="es">Tu historia</span><span lang="en">Your story</span></h3><p><span lang="es">Nos vemos en tu casa, tu hotel o un lugar que te guste. Escucho con calma.</span><span lang="en">We meet at your home, your hotel or a place you love. I listen calmly.</span></p></div></li>
+        <li><span class="n" aria-hidden="true">2</span><div><h3><span lang="es">Tus piedras</span><span lang="en">Your stones</span></h3><p><span lang="es">Elegimos juntos piedras y metal por lo que significan para ti. Conoces el precio antes de empezar.</span><span lang="en">Together we choose stones and metal for what they mean to you. You know the price before we begin.</span></p></div></li>
+        <li><span class="n" aria-hidden="true">3</span><div><h3><span lang="es">Tu acuarela</span><span lang="en">Your watercolour</span></h3><p><span lang="es">Pinto tu historia: el diseño de tu pieza nace en acuarela.</span><span lang="en">I paint your story: the design of your piece is born in watercolour.</span></p></div></li>
+        <li><span class="n" aria-hidden="true">4</span><div><h3><span lang="es">Tu collar</span><span lang="en">Your necklace</span></h3><p><span lang="es">Lo hago a mano y te cuento cómo tu historia tomó forma.</span><span lang="en">I make it by hand and tell you how your story took shape.</span></p></div></li>
+      </ol>
+    </div>
+    <div class="page">
+      <figure class="taped"><img src="../assets/sketch.webp" alt="Boceto de Charlotte: unos pendientes dibujados a lápiz sobre acuarela naranja y violeta, con notas de materiales" width="1200" height="749" loading="lazy"><figcaption><span lang="es">un boceto de Charlotte: pendientes en acuarela y lápiz</span><span lang="en">a sketch by Charlotte: earrings in watercolour and pencil</span></figcaption></figure>
+      <p class="note" style="margin-top:2rem;position:relative"><span lang="es">«No hay reglas en la creatividad.», Charlotte</span><span lang="en">“There are no rules in creativity.”, Charlotte</span></p>
+    </div>
+  </section>
+
+  <!-- Spread 3: stones -->
+  <section class="spread" aria-labelledby="h-pi">
+    <div class="page">
+      <div class="wash" style="left:-16%;bottom:-16%;width:72%;height:60%" aria-hidden="true"><img src="../assets/wash/violeta-c.webp" alt="" loading="lazy"></div>
+      <h2 id="h-pi"><span lang="es">Piedras que cuentan algo</span><span lang="en">Stones that tell something</span></h2>
+      <p style="position:relative;margin-top:1rem;max-width:38ch"><span lang="es">Cada piedra trae su origen y una tradición. Las elegimos por tu historia, tus colores y, si quieres, tu signo.</span><span lang="en">Every stone carries its origin and a tradition. We choose them for your story, your colours and, if you like, your sign.</span></p>
+      <p class="honest"><span lang="es">lo que cuenta la tradición, no promesas: hay quien cree y quien disfruta del gesto.</span><span lang="en">what tradition tells, not promises: some believe, some enjoy the gesture.</span></p>
+    </div>
+    <div class="page">
+      <ul class="swatches" id="swatches"></ul>
+      <p class="note" style="position:relative;font-size:1.25rem;margin-top:1.4rem"><span lang="es">Lapislázuli y nácar: fotos reales del collar de Charlotte. Las demás piedras son muestras de color hasta tener sus fotos.</span><span lang="en">Lapis lazuli and mother-of-pearl: real photos from Charlotte&#39;s necklace. The other stones are colour samples until their photos arrive.</span></p>
+    </div>
+  </section>
+
+  <!-- Spread 4: Charlotte -->
+  <section class="spread" aria-labelledby="h-ch">
+    <div class="page">
+      <figure class="polaroid"><img src="../assets/portrait.webp" alt="Retrato provisional generado por IA, no es Charlotte / AI-generated placeholder, not Charlotte" width="800" height="1000" loading="lazy"><figcaption><span lang="es">retrato provisional</span><span lang="en">placeholder portrait</span></figcaption></figure>
+    </div>
+    <div class="page bio">
+      <div class="wash" style="right:-18%;bottom:-12%;width:60%;height:42%" aria-hidden="true"><img src="../assets/wash/ultramar-b.webp" alt="" loading="lazy"></div>
+      <h2 id="h-ch" class="vh">Charlotte</h2>
+      <p class="quote"><span lang="es">«Soy Charlotte. Me encanta ir profundamente con las personas y adentrarnos en quiénes somos.»</span><span lang="en">“I'm Charlotte. I love going deep with people and finding out who we really are.”</span></p>
+      <p><span lang="es">Joyera de formación, con Bellas Artes y diploma de joyería, y artista. Llevo años haciendo collares con piedra natural, metal y lo que cada historia pide.</span><span lang="en">Trained jeweller, with Fine Arts and a jewellery diploma, and an artist. I have been making necklaces for years, with natural stone, metal and whatever each story asks for.</span></p>
+      <p><span lang="es">NuMA viene de Nuria, mi abuela, y Marisa, mi madre: el amor y el cuidado con los que aprendí a crear.</span><span lang="en">NuMA comes from Nuria, my grandmother, and Marisa, my mother: the love and care I learned to create with.</span></p>
+      <p class="note" style="margin-top:1rem"><span lang="es">hablo español, français y English</span><span lang="en">I speak Spanish, French and English</span></p>
+    </div>
+  </section>
+
+  <!-- Spread 5: offer + questions -->
+  <section class="spread" aria-labelledby="h-of">
+    <div class="page">
+      <div class="wash" style="left:-16%;top:6%;width:110%;height:70%" aria-hidden="true"><img src="../assets/wash/siena-a.webp" alt="" loading="lazy"></div>
+      <h2 id="h-of"><span lang="es">Primera edición</span><span lang="en">First edition</span></h2>
+      <p class="price">100&#8239;€<s><span lang="es">500 €</span><span lang="en">€500</span></s></p>
+      <p style="position:relative;margin-top:.8rem;max-width:36ch"><span lang="es">+ materiales, que eliges conmigo y conoces antes de empezar. A cambio te pido tu opinión sincera y, si te apetece, poder enseñar cómo nace tu pieza.</span><span lang="en">+ materials, chosen with me and known before we begin. In return I ask for your honest opinion and, if you like, permission to show how your piece was made.</span></p>
+      <a class="box" data-wa href="#"><span lang="es">Quiero una de las plazas</span><span lang="en">I'd like one of the places</span></a>
+      <span class="places" data-plazas></span>
+    </div>
+    <div class="page">
+      <h2 style="font-size:clamp(1.8rem,4vw,2.4rem)"><span lang="es">Preguntas</span><span lang="en">Questions</span></h2>
+      <div class="qa">
+        <details><summary><span lang="es">¿Dónde nos vemos y cuánto dura?</span><span lang="en">Where do we meet, and how long?</span></summary><p><span lang="es">En tu casa, tu hotel o un lugar que te guste, en Tenerife. Unas horas, sin prisa.</span><span lang="en">At your home, your hotel or a place you love, in Tenerife. A few unhurried hours.</span></p></details>
+        <details><summary><span lang="es">¿Cuánto cuestan los materiales?</span><span lang="en">How much are the materials?</span></summary><p><span lang="es">Depende de las piedras y el metal. Te digo el precio antes de empezar.</span><span lang="en">It depends on the stones and metal. I tell you the price before we begin.</span></p></details>
+        <details><summary><span lang="es">¿Puedo regalarlo?</span><span lang="en">Can I give it as a gift?</span></summary><p><span lang="es">Sí. Elegimos las piedras pensando en esa persona.</span><span lang="en">Yes. We choose the stones with that person in mind.</span></p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  NuMA · Tenerife · WhatsApp +34 642 52 73 97<br>
+  <a href="https://felixrohde.com/" target="_blank" rel="noopener"><span lang="es">Identidad y web por</span><span lang="en">Identity and web by</span> <img src="../assets/ezencia/ezencia-schriftzug-hell.webp" alt="Ezencia" width="90" height="20" loading="lazy"></a>
+</footer>
+
+<script src="../shared/numa.js"></script>
+<script>
+(function(){
+  var KEYS=['lapis','nacar','tigre','amatista','malaquita','cuarzorosa'];
+  var ul=document.getElementById('swatches');
+  function render(){
+    var l=NUMA.lang(); ul.innerHTML='';
+    KEYS.forEach(function(k){ var d=NUMA.S[k], li=document.createElement('li'); li.innerHTML=NUMA.stone(k)+'<b>'+d[l]+'</b><span class="ticket">'+d.o[l]+'</span><p>'+d.m[l]+'</p>'; ul.appendChild(li); });
+  }
+  document.addEventListener('numa:lang',render);
+  NUMA.init(); render();
+})();
+</script>
+</body>
+</html>

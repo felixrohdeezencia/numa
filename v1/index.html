@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="es" data-l="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NuMA · No es una joya. Es tu historia.</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#4E151E">
+<link href="../shared/fonts.css" rel="stylesheet">
+<style>
+:root{
+  --cloth:#5E1A24; --cloth-2:#4E151E; --cloth-3:#7A2430; --wax:#F1E6CF; --wax-2:#D9CBB0; --flame:#F2B544; --flame-2:#FFD98A; --ash:#D2C1A8;
+  --inscr:'Bellefair', 'Didot', Georgia, serif; --sans:'Albert Sans', 'Helvetica Neue', Arial, sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1);
+  color-scheme: dark;
+}
+html[data-l="es"] body [lang="en"], html[data-l="en"] body [lang="es"]{display:none !important}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scrollbar-color:var(--wax-2) var(--cloth-2)}
+body{color:var(--wax);font-family:var(--sans);font-weight:300;font-size:1.0625rem;line-height:1.7;caret-color:var(--flame);overflow-x:hidden;
+  background-color:var(--cloth);
+  background-image:
+    repeating-linear-gradient(0deg, rgba(0,0,0,.16) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(90deg, rgba(255,226,200,.07) 0 1px, transparent 1px 3px),
+    radial-gradient(90% 60% at 50% 30%, #8A2B38 0%, var(--cloth) 55%, var(--cloth-2) 100%);
+}
+::selection{background:var(--wax);color:var(--cloth-2)}
+a{color:inherit;text-underline-offset:5px;text-decoration-thickness:1px}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+img{max-width:100%;height:auto}
+:focus-visible{outline:2px solid var(--flame-2);outline-offset:4px;border-radius:999px}
+p{text-wrap:pretty} h1,h2,h3{text-wrap:balance}
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.wrap{width:min(1080px,100% - 2.5rem);margin-inline:auto}
+h2{font-family:var(--inscr);font-weight:400;font-size:clamp(2.2rem,6vw,3.6rem);line-height:1.08;letter-spacing:.01em}
+
+/* top bar */
+.top{position:absolute;inset:0 0 auto;z-index:5;padding-top:env(safe-area-inset-top,0px)}
+.top .wrap{display:flex;justify-content:space-between;align-items:center;height:64px}
+.mark{font-family:var(--inscr);font-size:1.55rem;letter-spacing:.14em;text-decoration:none;display:inline-flex;align-items:center;min-height:44px}
+.lang{display:flex;gap:2px;border:1px solid rgba(241,230,207,.3);border-radius:999px;padding:3px}
+.lang button{min-width:44px;min-height:38px;border-radius:999px;font-size:.85rem;letter-spacing:.06em;color:var(--wax-2)}
+.lang button[aria-pressed="true"]{background:var(--wax);color:var(--cloth-2)}
+
+/* ---------- Altar (first viewport) ---------- */
+.altar{position:relative;min-height:100svh;display:grid;place-items:center;padding:72px 0 28px;overflow:hidden}
+.altar .light{position:absolute;left:50%;top:42%;width:min(120vw,900px);aspect-ratio:1;transform:translate(-50%,-50%);pointer-events:none;background:radial-gradient(closest-side, rgba(255,214,140,.16), rgba(255,214,140,0));opacity:.5;transition:opacity .8s var(--ease)}
+.altar.lit .light{opacity:1}
+.ring{--d:min(92vw,640px,calc(100svh - 280px));position:relative;width:var(--d);height:var(--d)}
+.ring .inscr{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.ring .inscr text{font-family:var(--inscr);fill:var(--wax);letter-spacing:.06em}
+.ring .inscr .l1{font-size:39px}
+.ring .inscr .l2{font-size:39px;fill:var(--wax)}
+.ring .circle{position:absolute;inset:14%;border-radius:50%;border:1px solid rgba(241,230,207,.28)}
+.ring .circle::after{content:"";position:absolute;inset:7%;border-radius:50%;border:1px dashed rgba(241,230,207,.14)}
+.necklace{position:absolute;left:50%;top:50%;width:46%;transform:translate(-50%,-50%) rotate(-6deg);filter:drop-shadow(0 22px 26px rgba(20,4,8,.6))}
+.necklace img{width:100%;height:auto;display:block}
+.stone{position:absolute;left:50%;top:50%;width:13%;aspect-ratio:1;margin:-6.5% 0 0 -6.5%;transform:rotate(var(--a)) translateY(calc(var(--d) * -.335)) rotate(calc(var(--a) * -1));border-radius:50%;transition:transform .5s var(--ease)}
+.stone svg{width:100%;height:100%;display:block;filter:drop-shadow(0 8px 10px rgba(20,4,8,.55))}
+.stone[aria-pressed="true"]{transform:rotate(var(--a)) translateY(calc(var(--d) * -.27)) rotate(calc(var(--a) * -1)) scale(1.1)}
+.stone::before{content:"";position:absolute;inset:-40%;border-radius:50%;background:radial-gradient(closest-side, rgba(255,214,140,.5), rgba(255,214,140,0));opacity:0;transition:opacity .5s var(--ease);pointer-events:none}
+.stone[aria-pressed="true"]::before{opacity:1}
+.stone img,.stone svg{position:relative}
+.under{text-align:center;margin-top:1.6rem;display:grid;gap:.9rem;justify-items:center}
+.lead{max-width:40ch;color:var(--wax-2);font-size:1.08rem}
+.plaque{display:inline-flex;align-items:center;gap:.7rem;min-height:52px;padding:.9rem 1.6rem;border-radius:999px;background:var(--wax);color:var(--cloth-2);font-weight:500;text-decoration:none;box-shadow:0 12px 26px -14px rgba(0,0,0,.7);transition:transform .25s var(--ease)}
+.plaque:hover{transform:translateY(-1px)}
+.plaque .wick{width:14px;height:22px}
+.plaque .wick path{fill:transparent;transition:fill .5s var(--ease)}
+.altar.lit .plaque .wick path{fill:#E7962B}
+.hint{font-size:.9rem;color:var(--ash)}
+.chosen{min-height:1.5em;font-size:.95rem;color:var(--wax)}
+
+/* ---------- Stations ---------- */
+.stations{padding:clamp(4rem,9vw,7rem) 0}
+.stations h2{text-align:center;max-width:18ch;margin:0 auto 3.4rem}
+.path{list-style:none;position:relative;max-width:640px;margin:0 auto;display:grid;gap:3.2rem}
+.path::before{content:"";position:absolute;left:21px;top:10px;bottom:10px;width:1px;background:linear-gradient(var(--wax-2),rgba(217,203,176,.15))}
+.st{display:grid;grid-template-columns:44px 1fr;gap:1.4rem;align-items:start}
+.candle{position:relative;width:44px;height:64px}
+.candle .body{position:absolute;left:12px;bottom:0;width:20px;height:38px;border-radius:3px 3px 2px 2px;background:linear-gradient(90deg,#E8DABF,#F6EEDC 45%,#D4C4A4)}
+.candle .w{position:absolute;left:21px;bottom:38px;width:2px;height:7px;background:#3A2A22;border-radius:1px}
+.candle .f{position:absolute;left:14px;bottom:43px;width:16px;height:22px;border-radius:50% 50% 45% 45% / 62% 62% 38% 38%;background:radial-gradient(circle at 50% 70%, #fff7da 0 18%, var(--flame-2) 40%, var(--flame) 70%, rgba(242,181,68,0) 72%);opacity:0;transform:scale(.4);transform-origin:50% 100%;transition:opacity .8s var(--ease), transform .8s var(--ease)}
+.st.lit .candle .f{opacity:1;transform:none}
+.st h3{font-family:var(--inscr);font-weight:400;font-size:1.7rem;line-height:1.15;color:var(--wax);margin-bottom:.35rem}
+.st p{color:var(--wax-2);max-width:44ch}
+.st:not(.lit) h3{color:var(--ash)}
+.sketch{margin-top:1rem;max-width:420px;border-radius:6px;overflow:hidden;background:#F4EFE6}
+.sketch img{width:100%;display:block}
+.sketch figcaption{background:var(--cloth-2);color:var(--ash);font-size:.85rem;padding:.5rem .1rem 0}
+
+/* ---------- Stones read ---------- */
+.reading{padding:clamp(3rem,7vw,6rem) 0}
+.reading h2{max-width:20ch}
+.reading .intro{color:var(--wax-2);max-width:48ch;margin-top:1rem}
+.tags{list-style:none;margin-top:2.6rem;columns:2 320px;column-gap:3.4rem}
+.tag{break-inside:avoid;padding:1.1rem 0;border-top:1px solid rgba(241,230,207,.2)}
+.tag b{font-family:var(--inscr);font-weight:400;font-size:1.5rem;line-height:1.1}
+.tag small{display:inline;color:var(--wax-2);font-size:.86rem;margin-left:.6rem}
+.tag p{color:var(--wax-2);font-size:.95rem;margin-top:.2rem}
+.honest{margin-top:2.4rem;color:var(--ash);font-size:.9rem;max-width:60ch}
+
+/* ---------- Offer: one calm panel, one big word ---------- */
+.offer{padding:clamp(3rem,7vw,6rem) 0}
+.panel{max-width:620px;margin:0 auto;background:var(--wax);color:var(--cloth-2);border-radius:4px;padding:clamp(2rem,6vw,3.6rem);text-align:center;box-shadow:0 30px 60px -30px rgba(0,0,0,.7)}
+.panel h2{color:var(--cloth);font-size:clamp(1.6rem,4vw,2.2rem)}
+.panel .big{font-family:var(--inscr);font-size:clamp(5rem,20vw,8rem);line-height:.95;margin:.6rem 0 .2rem;color:var(--cloth-2)}
+.panel .was{font-size:1.05rem;color:#6E4B44}
+.panel .was s{text-decoration-thickness:1px}
+.panel p{max-width:42ch;margin:1rem auto 0;color:#4A2A26}
+.panel .plaque{background:var(--cloth);color:var(--wax);margin-top:1.8rem}
+.panel .plazas{font-weight:500;color:var(--cloth)}
+
+/* ---------- Charlotte ---------- */
+.who{padding:clamp(3rem,7vw,6rem) 0}
+.who .wrap{display:grid;gap:2.4rem;align-items:center}
+.who figure{width:min(100%,360px);position:relative}
+.who img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:999px 999px 6px 6px;filter:sepia(.15) saturate(.9)}
+.who figcaption{font-size:.8rem;color:var(--ash);margin-top:.5rem}
+.who blockquote{font-family:var(--inscr);font-size:clamp(1.6rem,4vw,2.3rem);line-height:1.25;margin-bottom:1.4rem}
+.who p{color:var(--wax-2);max-width:46ch;margin-bottom:.9rem}
+@media (min-width:860px){ .who .wrap{grid-template-columns:.8fr 1.2fr;gap:4.5rem} }
+
+/* ---------- Questions ---------- */
+.faq{padding:clamp(3rem,7vw,5rem) 0}
+.faq .wrap{max-width:760px}
+.faq details{border-top:1px solid rgba(241,230,207,.2)}
+.faq details:last-of-type{border-bottom:1px solid rgba(241,230,207,.2)}
+.faq summary{list-style:none;cursor:pointer;min-height:60px;display:flex;align-items:center;justify-content:space-between;gap:1rem;font-size:1.05rem}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";width:9px;height:9px;border-right:1.5px solid var(--wax-2);border-bottom:1.5px solid var(--wax-2);transform:rotate(45deg) translateY(-3px);transition:transform .25s}
+.faq details[open] summary::after{transform:rotate(225deg)}
+.faq p{color:var(--wax-2);padding-bottom:1.2rem;max-width:60ch}
+
+/* ---------- Footer ---------- */
+footer{padding:3rem 0 calc(3rem + env(safe-area-inset-bottom,0px));border-top:1px solid rgba(241,230,207,.15);text-align:center;color:var(--ash);font-size:.9rem}
+footer .ez{display:inline-flex;align-items:center;gap:.6rem;color:var(--wax-2);text-decoration:none;min-height:44px;margin-top:.6rem}
+footer .ez img{height:22px;width:auto}
+
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} .stone,.candle .f{transition:none} .st .candle .f{opacity:1;transform:none} }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="#altar">NuMA</a>
+    <div class="lang" role="group" aria-label="Idioma / Language">
+      <button type="button" data-lang-btn="es" aria-pressed="true">ES</button>
+      <button type="button" data-lang-btn="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="altar" id="altar" aria-labelledby="h1">
+    <div class="light" aria-hidden="true"></div>
+    <div style="position:relative">
+      <h1 id="h1" class="vh"><span lang="es">No es una joya. Es tu historia.</span><span lang="en">It isn't jewellery. It's your story.</span></h1>
+      <div class="ring" id="ring">
+        <svg class="inscr" viewBox="0 0 640 640" aria-hidden="true">
+          <defs>
+            <path id="arcTop" d="M 92 320 A 228 228 0 0 1 548 320"/>
+            <path id="arcBot" d="M 70 320 A 250 250 0 0 0 570 320"/>
+          </defs>
+          <text class="l1" lang="es"><textPath href="#arcTop" startOffset="50%" text-anchor="middle">No es una joya.</textPath></text>
+          <text class="l2" lang="es"><textPath href="#arcBot" startOffset="50%" text-anchor="middle">Es tu historia.</textPath></text>
+          <text class="l1" lang="en"><textPath href="#arcTop" startOffset="50%" text-anchor="middle">It isn't jewellery.</textPath></text>
+          <text class="l2" lang="en"><textPath href="#arcBot" startOffset="50%" text-anchor="middle">It's your story.</textPath></text>
+        </svg>
+        <div class="circle" aria-hidden="true"></div>
+        <figure class="necklace"><img src="../assets/necklace.webp" alt="" width="900" height="1152" fetchpriority="high"></figure>
+        <div id="stones" role="group" aria-label="Piedras / Stones"></div>
+      </div>
+      <div class="under wrap">
+        <p class="lead"><span lang="es">Charlotte escucha tu historia, también lo que no dices, la pinta en acuarela y la convierte en un collar único, hecho a mano en Tenerife.</span><span lang="en">Charlotte listens to your story, including what you leave unsaid, paints it in watercolour and turns it into a one-of-a-kind necklace, handmade in Tenerife.</span></p>
+        <p class="hint"><span lang="es">Toca las piedras que te atraen.</span><span lang="en">Touch the stones that draw you in.</span></p>
+        <p class="chosen" id="chosen" aria-live="polite"></p>
+        <a class="plaque" data-wa href="#"><svg class="wick" viewBox="0 0 14 22" aria-hidden="true"><path d="M7 1C10 6 12 9 12 12.5A5 5 0 0 1 2 12.5C2 9 4 6 7 1Z" fill="#E7962B"/><rect x="6.2" y="16" width="1.6" height="6" fill="currentColor"/></svg><span lang="es">Escribir a Charlotte</span><span lang="en">Write to Charlotte</span></a>
+        <p class="hint" data-plazas></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="stations" aria-labelledby="h-st">
+    <div class="wrap">
+      <h2 id="h-st"><span lang="es">Cuatro estaciones, una sola pieza</span><span lang="en">Four stations, one single piece</span></h2>
+      <ol class="path">
+        <li class="st"><div class="candle" aria-hidden="true"><span class="body"></span><span class="w"></span><span class="f"></span></div><div><h3><span lang="es">Tu historia</span><span lang="en">Your story</span></h3><p><span lang="es">Nos vemos en tu casa, tu hotel o un lugar que te guste. Escucho con calma, el tiempo que haga falta.</span><span lang="en">We meet at your home, your hotel or a place you love. I listen calmly, for as long as it takes.</span></p></div></li>
+        <li class="st"><div class="candle" aria-hidden="true"><span class="body"></span><span class="w"></span><span class="f"></span></div><div><h3><span lang="es">Tus piedras</span><span lang="en">Your stones</span></h3><p><span lang="es">Elegimos juntos piedras y metal por lo que significan para ti. Conoces el precio de los materiales antes de empezar.</span><span lang="en">Together we choose stones and metal for what they mean to you. You know the cost of materials before we begin.</span></p></div></li>
+        <li class="st"><div class="candle" aria-hidden="true"><span class="body"></span><span class="w"></span><span class="f"></span></div><div><h3><span lang="es">Tu acuarela</span><span lang="en">Your watercolour</span></h3><p><span lang="es">Pinto tu historia: el diseño de tu pieza nace en acuarela.</span><span lang="en">I paint your story: the design of your piece is born in watercolour.</span></p>
+          <figure class="sketch"><img src="../assets/sketch.webp" alt="Boceto de Charlotte: unos pendientes a lápiz sobre acuarela naranja y violeta / Charlotte's sketch: earrings in pencil over watercolour" width="1200" height="749" loading="lazy"><figcaption><span lang="es">Un boceto de Charlotte: pendientes en acuarela y lápiz.</span><span lang="en">A sketch by Charlotte: earrings in watercolour and pencil.</span></figcaption></figure></div></li>
+        <li class="st"><div class="candle" aria-hidden="true"><span class="body"></span><span class="w"></span><span class="f"></span></div><div><h3><span lang="es">Tu collar</span><span lang="en">Your necklace</span></h3><p><span lang="es">Lo hago a mano. Al entregártelo te cuento cómo tu historia tomó forma.</span><span lang="en">I make it by hand. When I give it to you, I tell you how your story took shape.</span></p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="reading" aria-labelledby="h-rd">
+    <div class="wrap">
+      <h2 id="h-rd"><span lang="es">Lo que cuentan las piedras</span><span lang="en">What the stones tell</span></h2>
+      <p class="intro"><span lang="es">Cada piedra trae su origen y una tradición. Las elegimos por tu historia, tus colores y, si quieres, tu signo.</span><span lang="en">Every stone carries its origin and a tradition. We choose them for your story, your colours and, if you like, your sign.</span></p>
+      <ul class="tags" id="tags"></ul>
+      <p class="honest" style="margin-top:1.4rem"><span lang="es">Lapislázuli y nácar: fotos reales del collar de Charlotte. Las demás piedras son muestras de color hasta tener sus fotos.</span><span lang="en">Lapis lazuli and mother-of-pearl: real photos from Charlotte&#39;s necklace. The other stones are colour samples until their photos arrive.</span></p>
+      <p class="honest"><span lang="es">Los significados vienen de la tradición, no son promesas. Hay quien cree en ellos y quien disfruta del gesto: las dos cosas valen.</span><span lang="en">The meanings come from tradition, not promises. Some believe in them, some simply enjoy the gesture: both are welcome.</span></p>
+    </div>
+  </section>
+
+  <section class="offer" aria-labelledby="h-of">
+    <div class="wrap">
+      <div class="panel">
+        <h2 id="h-of"><span lang="es">Primera edición</span><span lang="en">First edition</span></h2>
+        <p class="big">100&#8239;€</p>
+        <p class="was"><span lang="es">+ materiales, en lugar de <s>500&#8239;€</s></span><span lang="en">+ materials, instead of <s>€500</s></span></p>
+        <p><span class="plazas" data-plazas></span>. <span lang="es">A cambio te pido tu opinión sincera y, si te apetece, poder enseñar cómo nace tu pieza.</span><span lang="en">In return I ask for your honest opinion and, if you like, permission to show how your piece was made.</span></p>
+        <a class="plaque" data-wa href="#"><span lang="es">Quiero una de las plazas</span><span lang="en">I'd like one of the places</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="who" aria-labelledby="h-who">
+    <div class="wrap">
+      <figure><img src="../assets/portrait.webp" alt="Retrato provisional generado por IA, no es Charlotte / AI-generated placeholder, not Charlotte" width="800" height="1000" loading="lazy"><figcaption><span lang="es">Retrato provisional</span><span lang="en">Placeholder portrait</span></figcaption></figure>
+      <div>
+        <h2 id="h-who" class="vh">Charlotte</h2>
+        <blockquote><span lang="es">«Soy Charlotte. Me encanta ir profundamente con las personas y adentrarnos en quiénes somos.»</span><span lang="en">“I'm Charlotte. I love going deep with people and finding out who we really are.”</span></blockquote>
+        <p><span lang="es">Joyera de formación, con Bellas Artes y diploma de joyería, y artista. Llevo años haciendo collares con piedra natural, metal y lo que cada historia pide.</span><span lang="en">Trained jeweller, with Fine Arts and a jewellery diploma, and an artist. I have been making necklaces for years, with natural stone, metal and whatever each story asks for.</span></p>
+        <p><span lang="es">NuMA viene de Nuria, mi abuela, y Marisa, mi madre: el amor y el cuidado con los que aprendí a crear.</span><span lang="en">NuMA comes from Nuria, my grandmother, and Marisa, my mother: the love and care I learned to create with.</span></p>
+        <p><span lang="es">Hablo español, français y English.</span><span lang="en">I speak Spanish, French and English.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq" aria-labelledby="h-faq">
+    <div class="wrap">
+      <h2 id="h-faq" style="margin-bottom:1.6rem"><span lang="es">Preguntas</span><span lang="en">Questions</span></h2>
+      <details><summary><span lang="es">¿Dónde nos vemos y cuánto dura?</span><span lang="en">Where do we meet, and how long does it take?</span></summary><p><span lang="es">En tu casa, tu hotel o un lugar que te guste, en Tenerife. Unas horas, sin prisa.</span><span lang="en">At your home, your hotel or a place you love, in Tenerife. A few unhurried hours.</span></p></details>
+      <details><summary><span lang="es">¿Cuánto cuestan los materiales?</span><span lang="en">How much do the materials cost?</span></summary><p><span lang="es">Depende de las piedras y el metal. Te digo el precio antes de empezar.</span><span lang="en">It depends on the stones and metal. I tell you the price before we begin.</span></p></details>
+      <details><summary><span lang="es">¿Puedo regalarlo?</span><span lang="en">Can I give it as a gift?</span></summary><p><span lang="es">Sí. Elegimos las piedras pensando en esa persona; la experiencia también puede ser parte del regalo.</span><span lang="en">Yes. We choose the stones with that person in mind; the experience can be part of the gift too.</span></p></details>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>NuMA · Tenerife · WhatsApp +34 642 52 73 97</p>
+  <a class="ez" href="https://felixrohde.com/" target="_blank" rel="noopener"><span lang="es">Identidad y web por</span><span lang="en">Identity and web by</span> <img src="../assets/ezencia/ezencia-schriftzug-hell.webp" alt="Ezencia" width="99" height="22" loading="lazy"></a>
+</footer>
+
+<script src="../shared/numa.js"></script>
+<script>
+(function(){
+  var KEYS=['lapis','nacar','tigre','amatista','malaquita','cuarzorosa','turquesa','labradorita'];
+  var box=document.getElementById('stones'), picked=[];
+  KEYS.forEach(function(k,i){
+    var b=document.createElement('button'); b.type='button'; b.className='stone'; var A=[48,76,104,132,228,256,284,312]; b.style.setProperty('--a',A[i]+'deg');
+    b.setAttribute('aria-pressed','false'); b.innerHTML=NUMA.stone(k)+'<span class="vh" data-name="'+k+'"></span>';
+    b.addEventListener('click',function(){
+      var j=picked.indexOf(k);
+      if(j>-1) picked.splice(j,1); else { picked.push(k); if(picked.length>3) picked.shift(); }
+      render();
+    });
+    box.appendChild(b);
+  });
+  var tags=document.getElementById('tags');
+  function names(l){ return picked.map(function(k){ return NUMA.S[k][l].toLowerCase(); }); }
+  function and(a,l){ return a.length<2?a.join(''):a.slice(0,-1).join(', ')+(l==='es'?' y ':' and ')+a[a.length-1]; }
+  function render(){
+    var l=NUMA.lang();
+    [].forEach.call(box.children,function(b,i){ var k=KEYS[i]; b.setAttribute('aria-pressed', picked.indexOf(k)>-1?'true':'false'); b.setAttribute('aria-label',NUMA.S[k][l]); });
+    var c=document.getElementById('chosen');
+    document.getElementById('altar').classList.toggle('lit', picked.length>0);
+    if(!picked.length){ c.textContent=''; NUMA.setMessage(null); }
+    else {
+      c.textContent = (l==='es'?'Tus piedras: ':'Your stones: ')+picked.map(function(k){return NUMA.S[k][l];}).join(' · ');
+      NUMA.setMessage({es:'Hola Charlotte, vengo de la web de NuMA. Me atraen estas piedras: '+and(names('es'),'es')+'. ¿Hablamos de mi historia?', en:'Hi Charlotte, I found NuMA online. I am drawn to these stones: '+and(names('en'),'en')+'. Could we talk about my story?'});
+    }
+    tags.innerHTML='';
+    KEYS.forEach(function(k){ var d=NUMA.S[k], li=document.createElement('li'); li.className='tag'; li.innerHTML='<b>'+d[l]+'</b><small>'+d.o[l]+'</small><p>'+d.m[l]+'</p>'; tags.appendChild(li); });
+  }
+  document.addEventListener('numa:lang',render);
+  NUMA.init(); render();
+
+  /* Stationen: kalte Dochte entzünden sich beim Erreichen */
+  var st=document.querySelectorAll('.st');
+  if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches){
+    var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('lit'); io.unobserve(e.target); } }); },{rootMargin:'0px 0px -35% 0px'});
+    [].forEach.call(st,function(s){ io.observe(s); });
+  } else { [].forEach.call(st,function(s){ s.classList.add('lit'); }); }
+})();
+</script>
+</body>
+</html>

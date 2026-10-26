@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NuMA · Vier Entwürfe</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bellefair&family=Alegreya:ital,wght@0,500;1,400&family=Young+Serif&family=Marcellus+SC&family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#16181F;--soft:#4A4F5E;--line:#D8DAE0;--bg:#F5F5F2;color-scheme:light}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:'Work Sans',system-ui,sans-serif;font-weight:300;line-height:1.6}
+a{color:inherit}
+:focus-visible{outline:2px solid #2742A8;outline-offset:3px}
+.wrap{width:min(1180px,100% - 2.5rem);margin-inline:auto}
+header{padding:3.5rem 0 2rem}
+header h1{font-family:'Alegreya',serif;font-weight:500;font-size:clamp(2.2rem,5vw,3.4rem);line-height:1.05}
+header p{max-width:62ch;color:var(--soft);margin-top:1rem}
+.grid{display:grid;gap:1.2rem;padding-bottom:3rem}
+@media (min-width:860px){.grid{grid-template-columns:1fr 1fr}}
+.card{display:grid;grid-template-rows:auto 1fr;border-radius:6px;overflow:hidden;text-decoration:none;border:1px solid var(--line);background:#fff;transition:transform .25s cubic-bezier(.16,1,.3,1)}
+.card:hover{transform:translateY(-2px)}
+.face{min-height:220px;padding:1.6rem;display:flex;flex-direction:column;justify-content:flex-end}
+.face .t{font-size:clamp(1.8rem,3.4vw,2.4rem);line-height:1.05}
+.face .k{font-size:.9rem;margin-top:.4rem;opacity:.85}
+.v1 .face{background:#5E1A24;color:#F1E6CF}.v1 .t{font-family:'Bellefair',serif}
+.v2 .face{background:#EFEAE0;color:#1B2350;background-image:radial-gradient(38% 46% at 74% 38%,rgba(93,120,214,.42) 0 98%,transparent 100%),radial-gradient(26% 30% at 88% 72%,rgba(232,165,94,.5) 0 98%,transparent 100%)}.v2 .t{font-family:'Alegreya',serif;font-weight:500}
+.v3 .face{background:#0E2F3A;color:#EAF1F0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 220' preserveAspectRatio='xMaxYMid slice'%3E%3Ccircle cx='300' cy='88' r='52' fill='%232C4FBF'/%3E%3Ccircle cx='322' cy='104' r='26' fill='%23F2EEE6'/%3E%3Ccircle cx='262' cy='140' r='32' fill='%23C98A2B'/%3E%3C/svg%3E");background-size:cover;background-position:right center}.v3 .t{font-family:'Young Serif',serif}
+.v4 .face{background:#101A3F;color:#EED493;background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.04) 0 2px,transparent 2px 6px)}.v4 .t{font-family:'Marcellus SC',serif}
+.body{padding:1.4rem 1.6rem 1.6rem;display:grid;gap:.6rem;align-content:start}
+.body p{color:var(--soft);font-size:.96rem}
+.body b{font-weight:500;color:var(--ink)}
+.go{margin-top:.4rem;font-weight:500;text-decoration:underline;text-underline-offset:4px}
+.notes{border-top:1px solid var(--line);padding:2rem 0 3rem;color:var(--soft);font-size:.95rem}
+.notes h2{font-family:'Alegreya',serif;font-weight:500;color:var(--ink);font-size:1.6rem;margin-bottom:.8rem}
+.notes ul{padding-left:1.2rem;display:grid;gap:.4rem;max-width:80ch}
+</style>
+</head>
+<body>
+<header class="wrap">
+  <h1>NuMA · Vier Entwürfe</h1>
+  <p>Grundlage: alle Granola-Gespräche (19.–23.10.) und die Drive-Transkripte mit Charlotte, PRODUCT.md und der Impeccable-Prozess. Ein Würfel hat die erste Richtung gegen den Kategorie-Standard zugewiesen. Alle vier Entwürfe sind zweisprachig (ES/EN), funktionieren mobil und enden in einer persönlichen WhatsApp-Nachricht an Charlotte.</p>
+</header>
+<main class="wrap grid">
+  <a class="card v1" href="../v1/"><div class="face"><span class="t">v1 · Altar</span><span class="k">Gewürfelte Richtung</span></div>
+    <div class="body"><p><b>Idee:</b> Einen NuMA-Collar zu bestellen ist eine Zeremonie. Die Seite zeigt einen Altar von oben: Krapprotes Tuch, in der Mitte das echte Collar, ringsum acht Steine, oben und unten die Inschrift „No es una joya. Es tu historia.“</p><p><b>Interaktion:</b> Tippst du Steine an, wandern sie in die WhatsApp-Nachricht. Die vier Stationen haben kalte Dochte, die sich beim Erreichen entzünden.</p><p><b>Risiko:</b> Das Rituelle muss zu Charlottes Ton passen und darf nicht esoterisch wirken.</p><span class="go">Entwurf öffnen</span></div></a>
+  <a class="card v2" href="../v2/"><div class="face"><span class="t">v2 · Cuaderno</span><span class="k">Impeccables eigene Top-Richtung</span></div>
+    <div class="body"><p><b>Idee:</b> Die Website ist Charlottes aufgeschlagenes Skizzenbuch, eine Doppelseite mit Bundsteg. Aquarellflächen und Bleistiftnotizen zeigen auf das echte Collar („lapislázuli: verdad“, „tu historia empieza aquí“).</p><p><b>Treu zu Charlotte:</b> Ihr eigener vereinbarter Look „blanco roto, textura de lienzo, gotas de acuarela“.</p><p><b>Risiko:</b> Am vertrautesten der vier. Und laut Karla wirkt es eher zart als teuer.</p><span class="go">Entwurf öffnen</span></div></a>
+  <a class="card v3" href="../v3/"><div class="face"><span class="t">v3 · Baño de color</span><span class="k">Herausforderer: Ebru-Marmorierung</span></div>
+    <div class="body"><p><b>Idee:</b> Wie marmoriertes Papier gibt es jedes Stück nur einmal. Im Hero ist ein echtes Marmorier-Bad: Farbe tropfen, Linien ziehen, die eigene Lámina abheben.</p><p><b>Interaktion:</b> Aus den Farben der Lámina werden Steine mit Herkunft und Bedeutung, dazu eine fertige WhatsApp-Nachricht („Mi lámina tiene …“).</p><p><b>Risiko:</b> Das Spiel kann vom Angebot ablenken. Der Hero braucht JavaScript.</p><span class="go">Entwurf öffnen</span></div></a>
+  <a class="card v4" href="../v4/"><div class="face"><span class="t">v4 · Tejido</span><span class="k">Herausforderer: Jacquard-Brokat</span></div>
+    <div class="body"><p><b>Idee:</b> Ein Collar besteht aus vielen kleinen Entscheidungen, verwoben zu einem Motiv. Auf Mitternachtsseide webt sich das echte Collar in Goldschuss ein, berechnet aus den Pixeln des Fotos.</p><p><b>Interaktion:</b> In einer Lochkarte „stanzt“ man bis zu drei Steine, das Gewebe ändert sich live.</p><p><b>Risiko:</b> Lapis und Gold kommen Karlas Wunsch am nächsten, deshalb ist die Grenze zur klassischen Luxusschablone hier am dünnsten.</p><span class="go">Entwurf öffnen</span></div></a>
+</main>
+<section class="wrap notes">
+  <h2>Was überall noch fehlt</h2>
+  <ul>
+    <li>Ein echtes Porträt von Charlotte. Das aktuelle Bild ist KI-generiert und überall als „Retrato provisional“ gekennzeichnet.</li>
+    <li>Eine Skizze eines Collars. Die vorhandene Skizze zeigt Ohrringe und ist nur neutral beschriftet.</li>
+    <li>Fotos ihrer echten Steine und ein Foto des Collars, getragen auf der Brust.</li>
+    <li>Ihre Freigabe für Zitate, Biografie (Bellas Artes, Diplom, „llevo años“) und die Steinbedeutungen.</li>
+    <li>Das Angebot „Primera edición, 5 plazas, 100 € + materiales statt 500 €“ stammt aus der Session vom 19.10. In der Outreach wurden noch 500 € (250 + 250) genannt.</li>
+  </ul>
+</section>
+</body>
+</html>
